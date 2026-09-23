@@ -1293,13 +1293,13 @@ function renderQuestion() {
         let hintHtml = q.e;
         const mask = `<span style="background:#cbd5e0; color:transparent; border-radius:4px; padding:0 8px; user-select:none; border: 1px solid #94a3b8;" title="Đáp án bị che trong chế độ Luyện tập">?</span>`;
 if (q.type === 'mcq') {
-            hintHtml = hintHtml.replace(/(Phương án|Đáp án|Chọn)\s+([A-D])/gi, (m, p1) => `\({p1}\){mask}`);
-        } else if (q.type === 'short') {
-            const safeA = q.a.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-            hintHtml = hintHtml.replace(new RegExp(`\\b${safeA}\\b`, 'g'), () => mask);
-        } else if (q.type === 'tf') {
-            hintHtml = hintHtml.replace(/(Ý\s+[a-d](?:[\s,và]+[a-d])*)\s*(đúng|sai)/gi, (m, p1) => `\({p1}\){mask}`);
-        }
+    hintHtml = hintHtml.replace(/(Phương án|Đáp án|Chọn)\s+([A-D])/gi, (m, p1) => `\({p1}\){mask}`);
+} else if (q.type === 'short') {
+    const safeA = q.a.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+    hintHtml = hintHtml.replace(new RegExp(`\\b${safeA}\\b`, 'g'), () => mask);
+} else if (q.type === 'tf') {
+    hintHtml = hintHtml.replace(/(Ý\s+[a-d](?:[\s,và]+[a-d])*)\s*(đúng|sai)/gi, (m, p1) => `\({p1}\){mask}`);
+}
         html += `<button class="btn-hint" id="hint-trigger" style="padding: 8px 15px; border-radius: 8px; border: 2px solid var(--accent); background: #fffbeb; color: #b45309; font-weight: bold; cursor: pointer; margin-bottom: 15px;">${hintBtnText}</button><div id="hint-box" class="hint-box" style="display: none; margin-bottom: 15px; padding: 12px; background: #f8fafc; border-radius: 10px; border: 1px solid #e2e8f0; font-size: 0.9rem; color: #475569; line-height: 1.5;"><b>Hướng dẫn tư duy:</b><br>${hintHtml}</div>`;
     }
     if(q.type === 'mcq') {
@@ -1320,6 +1320,8 @@ if (q.type === 'mcq') {
         const currentVal = (userAnswers[q.id] || "").padEnd(4, " ");
         html += `<div class="short-answer-wrapper"><input type="text" class="char-slot" maxlength="1" value="${currentVal[0] !== ' ' ? currentVal[0] : ''}" data-idx="0"><input type="text" class="char-slot" maxlength="1" value="${currentVal[1] !== ' ' ? currentVal[1] : ''}" data-idx="1"><input type="text" class="char-slot" maxlength="1" value="${currentVal[2] !== ' ' ? currentVal[2] : ''}" data-idx="2"><input type="text" class="char-slot" maxlength="1" value="${currentVal[3] !== ' ' ? currentVal[3] : ''}" data-idx="3"></div><p style="color:var(--danger); font-size:0.8rem; font-weight:bold; text-align:center;">Lưu ý: Nhập mỗi ký tự vào một ô</p>`;
     }
+    html = html.replace(/\\((.*?)\\)/g, '
+$1');
     container.innerHTML = html + `</div>`;
     if(q.type === 'mcq') {
         container.querySelectorAll('.option').forEach(el => el.onclick = () => { userAnswers[q.id] = el.getAttribute('data-ans'); audioPing.play().catch(()=>{}); renderQuestion(); });
