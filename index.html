@@ -572,8 +572,8 @@ const audioFinish = new Audio('https://www.soundjay.com/misc/sounds/bell-ringing
 // ==========================================
 const ALL_BANKS = {
 
-  "KS_Vatli12": {
-    mcq: [
+  "ks_vatli12": {
+   mcq: [
       {
         q: "Phát biểu nào sau đây là đúng khi nói về mô hình động học phân tử?",
         a: "Khoảng cách giữa các phân tử trong chất lỏng lớn hơn khoảng cách giữa các phân tử trong chất rắn.",
@@ -825,13 +825,7 @@ const ALL_BANKS = {
           }
         ],
         e: "Ý a đúng vì \(1\\text{ Pa} = 1\\text{ N/m}^2\).
-Ý b đúng vì công sinh ra là A'=p⋅ΔV=3,0×10^5×7,0×10^(-3) 〖" m" 〗^3=2100" J" .
-
-
-Ý c đúng: Khí thực hiện công nên nhận công A=-2100" J" ; nội năng giảm nên ΔU=-1100" J"⇒Q=ΔU-A=-1100-(-2100)=1000" J" .
-
-
-Ý d sai: Nếu ΔU=+1100" J"  thì Q=1100-(-2100)=3200" J" ."
+		Ý b đúng vì công sinh ra là $A' = p \cdot \Delta V = 3,0 \times 10^5 \times 7,0 \times 10^{-3}\text{ m}^3 = 2100\text{ J}$.Ý c đúng: Khí thực hiện công nên nhận công $A = -2100\text{ J}$; nội năng giảm nên $\Delta U = -1100\text{ J} \Rightarrow Q = \Delta U - A = -1100 - (-2100) = 1000\text{ J}$.Ý d sai: Nếu $\Delta U = +1100\text{ J}$ thì $Q = 1100 - (-2100) = 3200\text{ J}$."
 },
 {
 ctx: "Trong các nhận định sau đây về cấu trúc và mô hình động học phân tử của chất khí, hãy cho biết câu nào đúng, câu nào sai?",
@@ -864,7 +858,7 @@ ctx: "Một người nặng 55 kg ăn một chiếc bánh có năng lượng 540
 sts: [
 {
 l: "a)",
-t: "Năng lượng của chiếc bánh tương đương với 2,26×10^6 " J" .",
+t: "Năng lượng của chiếc bánh tương đương với $2,26 \times 10^6\text{ J}$.",
 a: true
 },
 {
@@ -883,57 +877,39 @@ t: "Theo nghiên cứu, trung bình một người nặng khoảng 50 – 60 kg 
 a: true
 }
 ],
-e: "Ý a đúng: 540" kcal"=540×4184" J"≈2,26×10^6 " J" .
-Ý c đúng: Lấy g=9,8〖" m/s" 〗^2, năng lượng chuyển thành cơ năng là A_"ích" =0,25×2,26×10^6 " J" . Mặt khác A_"ích" =n⋅m⋅g⋅h⇒n=(0,25×2,26×10^6)/(55×9,8×0,15)≈6988 bậc.
-Ý d đúng: Thời gian chạy là t=540/12=45 phút."
+e: "Ý a đúng: $540\text{ kcal} = 540 \times 4184\text{ J} \approx 2,26 \times 10^6\text{ J}$.Ý c đúng: Lấy $g = 9,8\text{ m/s}^2$, năng lượng chuyển thành cơ năng là $A_{\text{ích}} = 0,25 \times 2,26 \times 10^6\text{ J}$. Mặt khác $A_{\text{ích}} = n \cdot m \cdot g \cdot h \Rightarrow n = \frac{0,25 \times 2,26 \times 10^6}{55 \times 9,8 \times 0,15} \approx 6988$ bậc.Ý d đúng: Thời gian chạy là $t = \frac{540}{12} = 45$ phút."
 }
 ],
 short: [
 {
-q: "Một chất khí đựng trong bình hình trụ được lắp một pit-tông có thể di chuyển không ma sát trong bình. Khi hấp thụ một năng lượng nhiệt 1,41×10^3 " J"  từ môi trường bên ngoài, chất khí trong bình giãn nở dưới áp suất bên ngoài không đổi là 1,00" atm"  từ thể tích 5,00" lít"  đến 10,0" lít" . Xác định độ biến thiên nội năng của khí trong bình (theo đơn vị J). Cho biết 1,00" atm"  tương ứng với 1,013×10^5 " Pa" .",
+q: "Một chất khí đựng trong bình hình trụ được lắp một pit-tông có thể di chuyển không ma sát trong bình. Khi hấp thụ một năng lượng nhiệt $1,41 \times 10^3\text{ J}$ từ môi trường bên ngoài, chất khí trong bình giãn nở dưới áp suất bên ngoài không đổi là $1,00\text{ atm}$ từ thể tích $5,00\text{ lít}$ đến $10,0\text{ lít}$. Xác định độ biến thiên nội năng của khí trong bình (theo đơn vị J). Cho biết $1,00\text{ atm}$ tương ứng với $1,013 \times 10^5\text{ Pa}$.",
 a: "907",
-e: "Nhiệt lượng khí nhận: Q=+1410" J" .
-
-Độ tăng thể tích: ΔV=(10,0-5,00)×10^(-3) 〖" m" 〗^3=5,00×10^(-3) 〖" m" 〗^3.
-
-Công do khối khí sinh ra: A'=p⋅ΔV=1,013×10^5×5,00×10^(-3)=506,5" J"⇒A=-506,5" J" .
-
-Độ biến thiên nội năng: ΔU=Q+A=1410-506,5=903,5" J"≈907" J" ."
+e: "Nhiệt lượng khí nhận: $Q = +1410\text{ J}$.Độ tăng thể tích: $\Delta V = (10,0 - 5,00) \times 10^{-3}\text{ m}^3 = 5,00 \times 10^{-3}\text{ m}^3$.Công do khối khí sinh ra: $A' = p \cdot \Delta V = 1,013 \times 10^5 \times 5,00 \times 10^{-3} = 506,5\text{ J} \Rightarrow A = -506,5\text{ J}$.Độ biến thiên nội năng: $\Delta U = Q + A = 1410 - 506,5 = 903,5\text{ J} \approx 907\text{ J}$."
 },
 {
-q: "Viên đạn chì có khối lượng 50 gam, bay với tốc độ 100" m/s" . Sau khi xuyên qua tấm thép, tốc độ giảm xuống còn 72 km/h. Tính lượng nội năng tăng thêm của đạn và thép (theo đơn vị J).",
+q: "Viên đạn chì có khối lượng 50 gam, bay với tốc độ $100\text{ m/s}$. Sau khi xuyên qua tấm thép, tốc độ giảm xuống còn 72 km/h. Tính lượng nội năng tăng thêm của đạn và thép (theo đơn vị J).",
 a: "240",
-e: "Đổi đơn vị: m=0,05" kg" ; v_1=100" m/s" ; v_2=72" km/h"=20" m/s" .
-
-Độ biến thiên nội năng bằng độ giảm động năng: ΔU=1/2 m(v_1^2-v_2^2 )=1/2×0,05×(100^2-20^2 )=240" J" ."
+e: "Đổi đơn vị: $m = 0,05\text{ kg}$; $v_1 = 100\text{ m/s}$; $v_2 = 72\text{ km/h} = 20\text{ m/s}$.Độ biến thiên nội năng bằng độ giảm động năng: $\Delta U = \frac{1}{2}m(v_1^2 - v_2^2) = \frac{1}{2} \times 0,05 \times (100^2 - 20^2) = 240\text{ J}$."
 },
 {
-q: "Một động cơ hơi nước tạo ra công 0,30×10^9 " J"  mỗi phút và hấp thụ nhiệt lượng 2,00×10^9 " J"  mỗi phút từ lò hơi. Hiệu suất của động cơ nhiệt này bằng bao nhiêu %?",
+q: "Một động cơ hơi nước tạo ra công $0,30 \times 10^9\text{ J}$ mỗi phút và hấp thụ nhiệt lượng $2,00 \times 10^9\text{ J}$ mỗi phút từ lò hơi. Hiệu suất của động cơ nhiệt này bằng bao nhiêu %?",
 a: "15",
-e: "Hiệu suất động cơ nhiệt: H=A/Q_1 =(0,30×10^9)/(2,00×10^9 )=0,15=15."
+e: "Hiệu suất động cơ nhiệt: $H = \frac{A}{Q_1} = \frac{0,30 \times 10^9}{2,00 \times 10^9} = 0,15 = 15\\%$."
 },
 {
-q: "Một người có khối lượng 60 kg muốn giảm 2 kg bằng cách lên xuống cầu thang cao 10 m. Giả sử anh ta đốt cháy lượng mỡ gấp đôi khi đi lên so với khi đi xuống. Nếu đốt cháy 1 kg mỡ tiêu tốn 7000 kcal thì người đó phải lên xuống bao nhiêu lần để giảm được 2 kg? Biết 1" cal"=4,2" J" . (Kết quả viết đến phần nguyên)",
+q: "Một người có khối lượng 60 kg muốn giảm 2 kg bằng cách lên xuống cầu thang cao 10 m. Giả sử anh ta đốt cháy lượng mỡ gấp đôi khi đi lên so với khi đi xuống. Nếu đốt cháy 1 kg mỡ tiêu tốn 7000 kcal thì người đó phải lên xuống bao nhiêu lần để giảm được 2 kg? Biết $1\text{ cal} = 4,2\text{ J}$. (Kết quả viết đến phần nguyên)",
 a: "6533",
-e: "Tổng năng lượng cần tiêu hao: E=2×7000×1000×4,2=58,8×10^6 " J" .
-
-Công cơ học khi đi lên 1 lần: A_"lên" =mgh=60×10×10=6000" J" .
-
-Khi đi xuống tiêu tốn: A_"xuống" =6000/2=3000" J" .
-Tổng năng lượng 1 lần lên xuống: A_1=6000+3000=9000" J" .
-Số lần lên xuống: N=58800000/9000≈6533,33⇒6533 lần."
+e: "Tổng năng lượng cần tiêu hao: $E = 2 \times 7000 \times 1000 \times 4,2 = 58,8 \times 10^6\text{ J}$.Công cơ học khi đi lên 1 lần: $A_{\text{lên}} = mgh = 60 \times 10 \times 10 = 6000\text{ J}$.Khi đi xuống tiêu tốn: $A_{\text{xuống}} = \frac{6000}{2} = 3000\text{ J}$.Tổng năng lượng 1 lần lên xuống: $A_1 = 6000 + 3000 = 9000\text{ J}$.Số lần lên xuống: $N = \frac{58800000}{9000} \approx 6533,33 \Rightarrow 6533$ lần."
 },
 {
-q: "Một người có khối lượng 60 kg nhảy ở độ cao 5 m xuống một bể bơi chứa nước. Tính độ biến thiên nội năng của nước trong bể bơi (theo đơn vị J). Bỏ qua các hao phí năng lượng thoát ra ngoài khối nước trong bể bơi. Lấy g=10〖" m/s" 〗^2.",
+q: "Một người có khối lượng 60 kg nhảy ở độ cao 5 m xuống một bể bơi chứa nước. Tính độ biến thiên nội năng của nước trong bể bơi (theo đơn vị J). Bỏ qua các hao phí năng lượng thoát ra ngoài khối nước trong bể bơi. Lấy $g = 10\text{ m/s}^2$.",
 a: "3000",
-e: "Thế năng trọng trường ban đầu của người chuyển hóa toàn bộ thành nhiệt làm tăng nội năng của nước: ΔU=mgh=60×10×5=3000" J" ."
+e: "Thế năng trọng trường ban đầu của người chuyển hóa toàn bộ thành nhiệt làm tăng nội năng của nước: $\Delta U = mgh = 60 \times 10 \times 5 = 3000\text{ J}$."
 },
 {
 q: "Một động cơ nhiệt truyền cho nguồn lạnh 80% nhiệt lượng mà nó thu được từ nguồn nóng. Hiệu suất của động cơ là bao nhiêu %?",
 a: "20",
-e: "Nhiệt lượng tỏa cho nguồn lạnh: Q_2=0,8Q_1.
-Công thực hiện: A=Q_1-Q_2=0,2Q_1.
-Hiệu suất: H=A/Q_1 =20."
+e: "Nhiệt lượng tỏa cho nguồn lạnh: $Q_2 = 0,8 Q_1$.Công thực hiện: $A = Q_1 - Q_2 = 0,2 Q_1$.Hiệu suất: $H = \frac{A}{Q_1} = 20\\%$."
 }
 ]
 }
