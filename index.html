@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>KHẢO SÁT MÔN VẬT LÍ 12 THPT NGUYỄN TRƯỜNG TỘ</title>
+    <title>KHẢO SÁT VẬT LÍ 12 (NH 2026-2027)</title>
     <!-- Hỗ trợ công thức Toán/Lý -->
     <script>
         window.MathJax = {
@@ -291,7 +291,7 @@
 
         <section id="screen-start" class="screen active">
             <div class="school-brand">
-                <h1 class="fire-text" style="font-size: 2.2rem;">KHẢO SÁT VẬT LÍ 12 NH 2026-2027</h1>
+                <h1 class="fire-text" style="font-size: 2.2rem;">KHẢO SÁT VẬT LÍ 12 (NH 2026-2027)</h1>
                 <p id="banner-topic" style="color:white; opacity:0.9; margin-top:8px; font-weight: 600; letter-spacing: 0.5px;">Vui lòng chọn chuyên đề bên dưới</p>
             </div>
 
@@ -301,8 +301,9 @@
                 <div style="margin-bottom: 20px; background: #fffbeb; padding: 15px; border-radius: 10px; border: 2px solid #fcd34d;">
                     <label style="font-size: 0.95rem; font-weight: bold; color: #92400e; display:block; margin-bottom:8px;">🎯 CHỌN CHUYÊN ĐỀ ÔN TẬP:</label>
                     <select id="topic-select" style="font-weight: bold; color: var(--primary); border-color: #fcd34d;">
-                        <option value="KS_Vatli12"> Đề khảo sát đầu năm học môn Vật lí 12</option>
-
+                        <option value="mix">🔥 ĐỀ TỔNG HỢP (Tất cả các bài)</option>
+                        <option value="ks_vatli12"> KHẢO SÁT VẬT LÍ 12 (NH 2026-2027) </option>
+            
                     </select>
                 </div>
 
@@ -513,7 +514,7 @@
         </section>
 
         <footer>
-            <div style="font-weight: 800; color: #cbd5e0; margin-bottom: 5px;"> KHẢO SÁT MÔN VẬT LÍ 12 NĂM HỌC 2026-2027</div>
+            <div style="font-weight: 800; color: #cbd5e0; margin-bottom: 5px;">KHẢO SÁT VẬT LÍ 12 NĂM HỌC 2026-2027</div>
             <div style="font-size: 0.85rem;">Bản quyền thuộc về Trường THPT Nguyễn Trường Tộ, Thành phố Huế</div>
         </footer>
     </div>
@@ -566,10 +567,11 @@ let importedStudentsCache = []; // Caching for excel import
 const audioPing = new Audio('https://www.soundjay.com/buttons/sounds/button-16.mp3');
 const audioFinish = new Audio('https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3');
 
-// ===================================================================
-// NGÂN HÀNG ĐỀ KHẢO SÁT VẬT LÍ 12 - TRƯỜNG THPT NGUYỄN TRƯỜNG TỘ
-// ===================================================================
+// ==========================================
+// CƠ SỞ DỮ LIỆU ĐƯỢC CHẮT LỌC & TỐI ƯU HÓA (GIỮ NGUYÊN)
+// ==========================================
 const ALL_BANKS = {
+
   "KS_Vatli12": {
     mcq: [
       {
@@ -1264,9 +1266,9 @@ const initGame = (m) => {
             activeBank.mcq.push(...bank.mcq); activeBank.tf.push(...bank.tf); activeBank.short.push(...bank.short);
         });
     } else { activeBank = ALL_BANKS[topicVal]; }
-const numMcq = Math.min(18, activeBank.mcq.length);
+    const numMcq = Math.min(12, activeBank.mcq.length);
     const numTf = Math.min(4, activeBank.tf.length);
-    const numShort = Math.min(6, activeBank.short.length);
+    const numShort = Math.min(4, activeBank.short.length);
     let qNum = 1;
     shuffle([...activeBank.mcq]).slice(0, numMcq).forEach(q => currentExam.push({...q, id: `q_${qNum}`, type: 'mcq', section: 'Phần I. Trắc nghiệm khách quan dạng Đa lựa chọn', displayNum: qNum++}));
     shuffle([...activeBank.tf]).slice(0, numTf).forEach(q => currentExam.push({...q, id: `q_${qNum}`, type: 'tf', section: 'Phần II. Trắc nghiệm khách quan dạng Đúng/Sai', displayNum: qNum++}));
@@ -1289,19 +1291,19 @@ function renderQuestion() {
     const q = currentExam[currentIdx]; const container = document.getElementById('quiz-content'); const labels = ['A', 'B', 'C', 'D'];
     let html = `<div class="section-title">${q.section}</div><div class="card" style="margin-top: -10px;">`;
     if(mode === 'practice') {
-       
         let hintBtnText = unlockedHints.includes(q.id) ? "ĐÃ MỞ GỢI Ý 💡" : `XEM GỢI Ý 💡 (Còn ${maxHintsAllowed - hintsUsed})`;
         let hintHtml = q.e;
-        const mask = `?`;
+        const mask = `<span style="background:#cbd5e0; color:transparent; border-radius:4px; padding:0 8px; user-select:none; border: 1px solid #94a3b8;" title="Đáp án bị che trong chế độ Luyện tập">?</span>`;
         if (q.type === 'mcq') {
-            hintHtml = hintHtml.replace(/(Phương án|Đáp án|Chọn)\s+([A-D])/gi, (m, p1) => `\({p1}\){mask}`);
+            hintHtml = hintHtml.replace(/(Phương án|Đáp án|Chọn)\s+([A-D])/gi, `$1 ${mask}`);
         } else if (q.type === 'short') {
             const safeA = q.a.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-            hintHtml = hintHtml.replace(new RegExp(`\\b${safeA}\\b`, 'g'), () => mask);
+            hintHtml = hintHtml.replace(new RegExp(`\\b${safeA}\\b`, 'g'), mask);
         } else if (q.type === 'tf') {
-            hintHtml = hintHtml.replace(/(Ý\s+[a-d](?:[\s,và]+[a-d])*)\s*(đúng|sai)/gi, (m, p1) => `\({p1}\){mask}`);
+            hintHtml = hintHtml.replace(/(Ý\s+[a-d](?:[\s,và]+[a-d])*)\s*(đúng|sai)/gi, `$1 ${mask}`);
         }
-        html += `${hintBtnText}
+        html += `<button class="btn-hint" id="hint-trigger" style="padding: 8px 15px; border-radius: 8px; border: 2px solid var(--accent); background: #fffbeb; color: #b45309; font-weight: bold; cursor: pointer; margin-bottom: 15px;">${hintBtnText}</button><div id="hint-box" class="hint-box" style="display: none; margin-bottom: 15px; padding: 12px; background: #f8fafc; border-radius: 10px; border: 1px solid #e2e8f0; font-size: 0.9rem; color: #475569; line-height: 1.5;"><b>Hướng dẫn tư duy:</b><br>${hintHtml}</div>`;
+    }
     if(q.type === 'mcq') {
         html += `<h3>Câu ${q.displayNum}. ${q.q}</h3>`;
         if(!q.shuffledOptions) q.shuffledOptions = shuffle([...q.o]);
@@ -1318,9 +1320,8 @@ function renderQuestion() {
     } else {
         html += `<h3>Câu ${q.displayNum}. ${q.q}</h3>`;
         const currentVal = (userAnswers[q.id] || "").padEnd(4, " ");
-        html += `<div class="short-answer-wrapper"><input type="text" class="char-slot" maxlength="1" value="${currentVal[0] !== ' ' ? currentVal[0] : ''}" data-idx="0"><input type="text" class="char-slot" maxlength="1" value="${currentVal[1] !== ' ' ? currentVal[1] : ''}" data-idx="1"><input type="text" class="char-slot" maxlength="1" value="${currentVal[2] !== ' ' ? currentVal[2] : ''}" data-idx="2"><input type="text" class="char-slot" maxlength="1" value="${currentVal[3] !== ' ' ? currentVal[3] : ''}" data-idx="3"></div><p style="color:var(--danger); font-size:0.8rem; font-weight:bold; text-align:center;">Lưu ý: Nhập mỗi ký tự vào một ô</p>`;
+        html += `<div class="short-answer-wrapper"><input type="text" class="char-slot" maxlength="1" value="${currentVal[0] !== ' ' ? currentVal[0] : ''}" data-idx="0"><input type="text" class="char-slot" maxlength="1" value="${currentVal[1] !== ' ' ? currentVal[1] : ''}" data-idx="1"><input type="text" class="char-slot" maxlength="1" value="${currentVal[2] !== ' ' ? currentVal[2] : ''}" data-idx="2"><input type="text" class="char-slot" maxlength="1" value="${currentVal[3] !== ' ' ? currentVal[3] : ''}" data-idx="3"></div><p style="color:var(--danger); font-size:0.8rem; font-weight:bold; text-align:center;">Lưu ý: Nhập mỗi kÍ tự vào một ô, BẮT ĐẦU TỪ TRÁI SANG PHẢI</p>`;
     }
-    html = html.replace(/\\((.*?)\\)/g, '$1');
     container.innerHTML = html + `</div>`;
     if(q.type === 'mcq') {
         container.querySelectorAll('.option').forEach(el => el.onclick = () => { userAnswers[q.id] = el.getAttribute('data-ans'); audioPing.play().catch(()=>{}); renderQuestion(); });
@@ -1353,22 +1354,20 @@ function renderQuestion() {
     document.getElementById('btn-prev').style.visibility = currentIdx === 0 ? 'hidden' : 'visible';
     document.getElementById('btn-next').style.display = currentIdx === currentExam.length - 1 ? 'none' : 'block';
     document.getElementById('btn-finish').style.display = currentIdx === currentExam.length - 1 ? 'block' : 'none';
-if (window.MathJax && window.MathJax.typesetPromise) {
-        MathJax.typesetClear([container]);
-        MathJax.typesetPromise([container]).then(autoScaleApp).catch(() => setTimeout(autoScaleApp, 50));
-    } else {
-        setTimeout(autoScaleApp, 50);
-    }
+    if(window.MathJax) MathJax.typesetPromise().then(autoScaleApp); else setTimeout(autoScaleApp, 50);
 }
+
 async function calculateResult() {
     if (hasSaved) return; if(!isQuizRunning && !isProcessingCheat) return; hasSaved = true;
     if(wishTimeoutId) clearTimeout(wishTimeoutId);
     isQuizRunning = false; canCheckCheat = false; clearInterval(timerInt); audioFinish.play().catch(()=>{});
     document.getElementById('btn-report-open').style.display = 'block'; document.getElementById('btn-admin-open').style.display = 'block';
     const dur = Math.floor((Date.now() - quizStartTime) / 1000); let score = 0; 
-    const pMCQ = 0.25;    // Mỗi câu trắc nghiệm nhiều lựa chọn: 0,25 điểm (18 x 0,25 = 4,5 đ)
-    const pShort = 0.25;  // Mỗi câu trả lời ngắn: 0,25 điểm (6 x 0,25 = 1,5 đ)
-    const tfMap = {0: 0, 1: 0.1, 2: 0.25, 3: 0.5, 4: 1.0}; // Mỗi câu Đúng/Sai tối đa 1 điểm (4 x 1 = 4,0 đ)
+    const totalMCQ = currentExam.filter(q=>q.type==='mcq').length || 1;
+    const totalTF = currentExam.filter(q=>q.type==='tf').length || 1;
+    const totalShort = currentExam.filter(q=>q.type==='short').length || 1;
+    const pMCQ = 3.0 / totalMCQ, pTF = 2.0 / totalTF, pShort = 2.0 / totalShort;
+    const tfMap = {0:0, 1: pTF*0.1/0.5, 2: pTF*0.25/0.5, 3: pTF*0.35/0.5, 4: pTF};
     currentExam.forEach(q => {
         const norm = (s) => (s || "").toString().trim().replace(',','.');
         if(q.type === 'mcq' && norm(userAnswers[q.id]||'') === norm(q.a)) score += pMCQ;
@@ -1516,9 +1515,8 @@ function viewAdminReview(docId) {
     document.getElementById('ar-name').innerText = `${record.name} - Điểm: ${record.score}`; arExamData = record.examData; arUserAnswers = record.userAnswers || {};
     const content = document.getElementById('ar-content'); let h = '', labels = ['A', 'B', 'C', 'D'];
     const norm = (s) => (s || "").toString().trim().replace(',','.'); 
-    const pMCQ = 0.25;
-    const pShort = 0.25;
-    const tfMapReview = {0: 0, 1: 0.1, 2: 0.25, 3: 0.5, 4: 1.0};
+    const pMCQ = 3.0 / (arExamData.filter(q=>q.type==='mcq').length||1), pTF = 2.0 / (arExamData.filter(q=>q.type==='tf').length||1), pShort = 2.0 / (arExamData.filter(q=>q.type==='short').length||1);
+    const tfMapReview = {0:0, 1: pTF*0.1/0.5, 2: pTF*0.25/0.5, 3: pTF*0.35/0.5, 4: pTF};
     arExamData.forEach(q => {
         let qText = q.type === 'tf' ? `Câu ${q.displayNum} (Đúng/Sai)` : `Câu ${q.displayNum}. ${q.q}`; let itemScore = 0, scoreHTML = '';
         if(q.type === 'mcq') { itemScore = norm(arUserAnswers[q.id]||'') === norm(q.a) ? pMCQ : 0; scoreHTML = `<span class="score-badge ${itemScore > 0 ? 'score-plus' : 'score-zero'}">${itemScore > 0 ? '+'+itemScore.toFixed(2) : '0'}đ</span>`; }
@@ -1557,7 +1555,7 @@ document.getElementById('btn-ar-retry').onclick = () => {
 
 // EXCEL IMPORT & EXPORT ========================================
 document.getElementById('btn-download-template').onclick = () => {
-    const templateData = [{ "STT": 1, "Họ và Tên": "Nguyễn Văn A", "Lớp": "12/1", "SBD": "01", "Trường": "THPT Nguyễn Trường Tộ" }, { "STT": 2, "Họ và Tên": "Trần Thị B", "Lớp": "12/2", "SBD": "02", "Trường": "THPT Nguyễn Trường Tộ" }];
+    const templateData = [{ "STT": 1, "Họ và Tên": "Nguyễn Văn A", "Lớp": "9/1", "SBD": "01", "Trường": "THCS Thanh Thuỷ" }, { "STT": 2, "Họ và Tên": "Trần Thị B", "Lớp": "9/2", "SBD": "02", "Trường": "THCS Thanh Thuỷ" }];
     const ws = XLSX.utils.json_to_sheet(templateData);
     ws['!cols'] = [{wch: 5}, {wch: 30}, {wch: 10}, {wch: 10}, {wch: 30}];
     const wb = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, ws, "DanhSachHocSinh");
@@ -1595,7 +1593,7 @@ document.getElementById('file-import-students').onchange = (e) => {
                 let name = (row["Họ và Tên"] || row["Họ tên"] || row["Name"] || "").toString().trim();
                 let cls = (row["Lớp"] || row["Class"] || "").toString().trim();
                 let sbd = (row["SBD"] || row["Số báo danh"] || "").toString().trim();
-                let sch = (row["Trường"] || row["School"] || "THPT Nguyễn Trường Tộ").toString().trim();
+                let sch = (row["Trường"] || row["School"] || "THCS Thanh Thuỷ").toString().trim();
                 if(name) {
                     // Lọc trùng lặp dựa trên Tên, Lớp và Trường
                     let isDupDB = globalStudentList.some(s => s.name === name && s.class === cls && s.school === sch);
@@ -1818,9 +1816,8 @@ document.getElementById('btn-inbox-close').onclick = () => document.getElementBy
 document.getElementById('btn-view-review').onclick = () => {
     const area = document.getElementById('review-area'), content = document.getElementById('review-content'), labels = ['A', 'B', 'C', 'D']; area.style.display = 'block'; let h = '';
     const norm = (s) => (s || "").toString().trim().replace(',','.');
-const pMCQ = 0.25;
-    const pShort = 0.25;
-    const tfMapReview = {0: 0, 1: 0.1, 2: 0.25, 3: 0.5, 4: 1.0};
+    const pMCQ = 3.0 / (currentExam.filter(q=>q.type==='mcq').length||1), pTF = 2.0 / (currentExam.filter(q=>q.type==='tf').length||1), pShort = 2.0 / (currentExam.filter(q=>q.type==='short').length||1);
+    const tfMapReview = {0:0, 1: pTF*0.1/0.5, 2: pTF*0.25/0.5, 3: pTF*0.35/0.5, 4: pTF};
     currentExam.forEach(q => {
         let qText = q.type === 'tf' ? `Câu ${q.displayNum} (Đúng/Sai)` : `Câu ${q.displayNum}. ${q.q}`; let itemScore = 0, scoreHTML = '';
         if(q.type === 'mcq') { itemScore = norm(userAnswers[q.id]||'') === norm(q.a) ? pMCQ : 0; scoreHTML = `<span class="score-badge ${itemScore > 0 ? 'score-plus' : 'score-zero'}">${itemScore > 0 ? '+'+itemScore.toFixed(2) : '0'}đ</span>`; } 
