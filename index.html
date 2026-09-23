@@ -1289,19 +1289,19 @@ function renderQuestion() {
     const q = currentExam[currentIdx]; const container = document.getElementById('quiz-content'); const labels = ['A', 'B', 'C', 'D'];
     let html = `<div class="section-title">${q.section}</div><div class="card" style="margin-top: -10px;">`;
     if(mode === 'practice') {
+       
         let hintBtnText = unlockedHints.includes(q.id) ? "ĐÃ MỞ GỢI Ý 💡" : `XEM GỢI Ý 💡 (Còn ${maxHintsAllowed - hintsUsed})`;
         let hintHtml = q.e;
-        const mask = `<span style="background:#cbd5e0; color:transparent; border-radius:4px; padding:0 8px; user-select:none; border: 1px solid #94a3b8;" title="Đáp án bị che trong chế độ Luyện tập">?</span>`;
-if (q.type === 'mcq') {
-    hintHtml = hintHtml.replace(/(Phương án|Đáp án|Chọn)\s+([A-D])/gi, (m, p1) => `\({p1}\){mask}`);
-} else if (q.type === 'short') {
-    const safeA = q.a.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-    hintHtml = hintHtml.replace(new RegExp(`\\b${safeA}\\b`, 'g'), () => mask);
-} else if (q.type === 'tf') {
-    hintHtml = hintHtml.replace(/(Ý\s+[a-d](?:[\s,và]+[a-d])*)\s*(đúng|sai)/gi, (m, p1) => `\({p1}\){mask}`);
-}
-        html += `<button class="btn-hint" id="hint-trigger" style="padding: 8px 15px; border-radius: 8px; border: 2px solid var(--accent); background: #fffbeb; color: #b45309; font-weight: bold; cursor: pointer; margin-bottom: 15px;">${hintBtnText}</button><div id="hint-box" class="hint-box" style="display: none; margin-bottom: 15px; padding: 12px; background: #f8fafc; border-radius: 10px; border: 1px solid #e2e8f0; font-size: 0.9rem; color: #475569; line-height: 1.5;"><b>Hướng dẫn tư duy:</b><br>${hintHtml}</div>`;
-    }
+        const mask = `?`;
+        if (q.type === 'mcq') {
+            hintHtml = hintHtml.replace(/(Phương án|Đáp án|Chọn)\s+([A-D])/gi, (m, p1) => `\({p1}\){mask}`);
+        } else if (q.type === 'short') {
+            const safeA = q.a.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+            hintHtml = hintHtml.replace(new RegExp(`\\b${safeA}\\b`, 'g'), () => mask);
+        } else if (q.type === 'tf') {
+            hintHtml = hintHtml.replace(/(Ý\s+[a-d](?:[\s,và]+[a-d])*)\s*(đúng|sai)/gi, (m, p1) => `\({p1}\){mask}`);
+        }
+        html += `${hintBtnText}
     if(q.type === 'mcq') {
         html += `<h3>Câu ${q.displayNum}. ${q.q}</h3>`;
         if(!q.shuffledOptions) q.shuffledOptions = shuffle([...q.o]);
