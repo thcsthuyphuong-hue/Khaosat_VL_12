@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Hệ Thống Ôn Tập Vật Lý 9</title>
+    <title>KHẢO SÁT MÔN VẬT LÍ 12 THPT NGUYỄN TRƯỜNG TỘ</title>
     <!-- Hỗ trợ công thức Toán/Lý -->
     <script>
         window.MathJax = {
@@ -23,7 +23,7 @@
             --primary: #1e40af; --secondary: #3b82f6; --success: #10b981; --danger: #ef4444; 
             --bg: #0f172a; --card: #ffffff; --text: #1e293b; --accent: #f59e0b;
         }
-        
+  
         * { -webkit-user-select: none !important; -moz-user-select: none !important; -ms-user-select: none !important; user-select: none !important; -webkit-touch-callout: none !important; box-sizing: border-box; }
         input, textarea, select { -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; user-select: text !important; }
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); margin: 0; overflow-x: hidden; -webkit-tap-highlight-color: transparent; }
@@ -291,7 +291,7 @@
 
         <section id="screen-start" class="screen active">
             <div class="school-brand">
-                <h1 class="fire-text" style="font-size: 2.2rem;">HỆ THỐNG ÔN TẬP VẬT LÝ 9</h1>
+                <h1 class="fire-text" style="font-size: 2.2rem;">KHẢO SÁT VẬT LÍ 12 ĐẦU NĂM HỌC 2026-2027</h1>
                 <p id="banner-topic" style="color:white; opacity:0.9; margin-top:8px; font-weight: 600; letter-spacing: 0.5px;">Vui lòng chọn chuyên đề bên dưới</p>
             </div>
 
@@ -301,12 +301,8 @@
                 <div style="margin-bottom: 20px; background: #fffbeb; padding: 15px; border-radius: 10px; border: 2px solid #fcd34d;">
                     <label style="font-size: 0.95rem; font-weight: bold; color: #92400e; display:block; margin-bottom:8px;">🎯 CHỌN CHUYÊN ĐỀ ÔN TẬP:</label>
                     <select id="topic-select" style="font-weight: bold; color: var(--primary); border-color: #fcd34d;">
-                        <option value="mix">🔥 ĐỀ TỔNG HỢP (Tất cả các bài)</option>
-                        <option value="bai_11">Bài 11: Điện trở. Định luật Ohm</option>
-                        <option value="bai_12">Bài 12: Đoạn mạch nối tiếp, song song</option>
-                        <option value="bai_13">Bài 13: Năng lượng điện và công suất</option>
-                        <option value="bai_14">Bài 14: Cảm ứng điện từ. Dòng điện XC</option>
-                        <option value="bai_15">Bài 15: Tác dụng của dòng điện XC</option>
+                        <option value="KS_Vatli12"> Đề khảo sát đầu năm học môn Vật lí 12  </option>
+
                     </select>
                 </div>
 
@@ -517,8 +513,8 @@
         </section>
 
         <footer>
-            <div style="font-weight: 800; color: #cbd5e0; margin-bottom: 5px;">HỆ THỐNG LUYỆN TẬP VẬT LÝ 9</div>
-            <div style="font-size: 0.85rem;">Bản quyền thuộc về Trường THCS Thuỷ Phương, Thành phố Huế</div>
+            <div style="font-weight: 800; color: #cbd5e0; margin-bottom: 5px;"> KHẢO SÁT MÔN VẬT LÍ 12 NĂM HỌC 2026-2027</div>
+            <div style="font-size: 0.85rem;">Bản quyền thuộc về Trường THPT Nguyễn Trường Tộ, Thành phố Huế</div>
         </footer>
     </div>
 </div>
@@ -571,180 +567,351 @@ const audioPing = new Audio('https://www.soundjay.com/buttons/sounds/button-16.m
 const audioFinish = new Audio('https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3');
 
 // ==========================================
-// CƠ SỞ DỮ LIỆU ĐƯỢC CHẮT LỌC & TỐI ƯU HÓA (GIỮ NGUYÊN)
-// ==========================================
+// =========================================================================
+// NGÂN HÀNG ĐỀ KHẢO SÁT ĐẦU NĂM VẬT LÍ 12 - TRƯỜNG THPT NGUYỄN TRƯỜNG TỘ
+// =========================================================================
 const ALL_BANKS = {
-    "bai_11": {
-        mcq: [
-            {q:"Công thức tính điện trở của một đoạn dây dẫn hình trụ đồng chất là", a:"$R = \\rho \\frac{l}{S}$", o:["$R = \\frac{l}{\\rho S}$", "$R = \\rho \\frac{l}{S}$", "$R = \\rho \\frac{S}{l}$", "$R = \\frac{S}{\\rho l}$"], e:"Điện trở tỉ lệ thuận với chiều dài l, tỉ lệ nghịch với tiết diện S."},
-            {q:"Đối với đoạn mạch gồm hai điện trở $R_1$ và $R_2$ mắc nối tiếp, công thức tính điện trở tương đương là", a:"$R_{td} = R_1 + R_2$", o:["$R_{td} = \\frac{R_1 R_2}{R_1 + R_2}$", "$R_{td} = R_1 + R_2$", "$R_{td} = \\frac{R_1 + R_2}{R_1 R_2}$", "$\\frac{1}{R_{td}} = \\frac{1}{R_1} + \\frac{1}{R_2}$"], e:"Đoạn mạch mắc nối tiếp có điện trở tương đương bằng tổng các điện trở thành phần."},
-            {q:"Đối với đoạn mạch gồm hai điện trở $R_1$ và $R_2$ mắc song song, công thức tính điện trở tương đương là", a:"$\\frac{1}{R_{td}} = \\frac{1}{R_1} + \\frac{1}{R_2}$", o:["$R_{td} = R_1 + R_2$", "$\\frac{1}{R_{td}} = R_1 + R_2$", "$R_{td} = \\frac{R_1 + R_2}{R_1 R_2}$", "$\\frac{1}{R_{td}} = \\frac{1}{R_1} + \\frac{1}{R_2}$"], e:"Nghịch đảo điện trở tương đương bằng tổng nghịch đảo các điện trở thành phần."},
-            {q:"Điện trở của một dây dẫn thể hiện đặc tính nào sau đây đối với dòng điện chạy qua nó?", a:"Cản trở dòng điện trong mạch.", o:["Hỗ trợ cho dòng điện chạy qua dễ dàng hơn.", "Làm thay đổi chiều của dòng điện trong mạch.", "Cản trở dòng điện trong mạch.", "Biến đổi dòng điện một chiều thành dòng điện xoay chiều."], e:"Điện trở đặc trưng cho mức độ cản trở dòng điện của vật dẫn."},
-            {q:"Định luật Ohm đối với đoạn mạch có điện trở được phát biểu là: Cường độ dòng điện đi qua một đoạn dây dẫn", a:"tỉ lệ thuận với hiệu điện thế giữa hai đầu đoạn dây và tỉ lệ nghịch với điện trở của nó.", o:["tỉ lệ nghịch với hiệu điện thế giữa hai đầu đoạn dây và tỉ lệ thuận với điện trở của nó.", "tỉ lệ thuận với hiệu điện thế giữa hai đầu đoạn dây và tỉ lệ nghịch với điện trở của nó.", "tỉ lệ thuận với hiệu điện thế giữa hai đầu đoạn dây và tỉ lệ thuận với điện trở của nó.", "tỉ lệ nghịch với hiệu điện thế giữa hai đầu đoạn dây và tỉ lệ nghịch với điện trở của nó."], e:"Định luật Ohm: I tỉ lệ thuận với U và tỉ lệ nghịch với R."},
-            {q:"Hệ thức nào sau đây là công thức đúng của định luật Ohm?", a:"$I = \\frac{U}{R}$", o:["$I = U.R$", "$R = \\frac{I}{U}$", "$I = \\frac{U}{R}$", "$U = \\frac{I}{R}$"], e:"Định luật Ohm: Cường độ dòng điện bằng thương số giữa hiệu điện thế và điện trở."},
-            {q:"Trong công thức của định luật Ohm, đơn vị chuẩn của cường độ dòng điện (I), hiệu điện thế (U) và điện trở (R) lần lượt là", a:"ampere (A), volt (V), ohm ($\\Omega$).", o:["volt (V), ampere (A), ohm ($\\Omega$).", "ampere (A), volt (V), ohm ($\\Omega$).", "ohm ($\\Omega$), volt (V), ampere (A).", "ampere (A), ohm ($\\Omega$), volt (V)."], e:"I đo bằng A, U đo bằng V, R đo bằng $\\Omega$."},
-            {q:"Đại lượng R trong công thức định luật Ohm có ý nghĩa vật lí là gì?", a:"Đặc trưng cho mức độ cản trở dòng điện của đoạn dây dẫn.", o:["Đo mức độ cung cấp năng lượng của nguồn điện.", "Chỉ sự dịch chuyển có hướng của các electron.", "Là độ chênh lệch điện thế giữa hai đầu dây.", "Đặc trưng cho mức độ cản trở dòng điện của đoạn dây dẫn."], e:"R là điện trở, đại lượng biểu thị sự cản trở dòng điện."},
-            {q:"Tiến hành thí nghiệm: Lắp một bóng đèn pin nối tiếp với ampe kế. Mắc nối tiếp thêm điện trở R vào mạch. Nhận xét nào đúng?", a:"Bóng đèn sáng yếu đi, số chỉ ampe kế giảm.", o:["Bóng đèn sáng mạnh hơn, số chỉ ampe kế tăng.", "Bóng đèn sáng yếu đi, số chỉ ampe kế giảm.", "Bóng đèn sáng bình thường, số chỉ ampe kế không đổi.", "Bóng đèn đứt dây tóc ngay lập tức."], e:"Mắc thêm R làm tăng điện trở, dòng điện I giảm nên đèn sáng yếu đi."},
-            {q:"Đo dòng điện qua hai điện trở $R_1$ và $R_2$ ở cùng hiệu điện thế. Nếu $R_1 > R_2$, kết quả nào đúng?", a:"$I_1 < I_2$", o:["$I_1 > I_2$", "$I_1 < I_2$", "$I_1 = I_2$", "$I_1 = 2 I_2$"], e:"Điện trở càng lớn thì cản trở dòng điện càng mạnh nên cường độ dòng điện càng nhỏ."},
-            {q:"Từ kết quả thí nghiệm đo I và U của một đoạn dây dẫn điện trở không đổi, đồ thị vẽ được có dạng là", a:"một đường thẳng đi qua gốc tọa độ.", o:["một đường cong parabol đi qua gốc tọa độ.", "một đường thẳng song song với trục hoành U.", "một đường thẳng đi qua gốc tọa độ.", "một đường hyperbol phân nhánh."], e:"Đồ thị của hàm bậc nhất tỉ lệ thuận là đường thẳng đi qua gốc toạ độ."},
-            {q:"Một đoạn dây dẫn bằng đồng có chiều dài 4 m, tiết diện $2 \\times 10^{-6} m^2$, $\\rho = 1,7 \\times 10^{-8} \\Omega.m$. Điện trở của dây là", a:"$0,034 \\Omega$", o:["$0,034 \\Omega$", "$3,4 \\Omega$", "$0,34 \\Omega$", "$34 \\Omega$"], e:"Áp dụng $R = \\rho \\frac{l}{S}$."},
-            {q:"Dây nhôm dài 10m có điện trở $1 \\Omega$. Cắt lấy đoạn 5m thì điện trở đoạn này là", a:"$0,5 \\Omega$", o:["$2 \\Omega$", "$0,5 \\Omega$", "$1 \\Omega$", "$0,25 \\Omega$"], e:"R tỉ lệ thuận với chiều dài. Chiều dài giảm 1 nửa thì R giảm 1 nửa."},
-            {q:"Có dây dẫn điện trở R. Cắt thành 2 đoạn bằng nhau rồi chập lại (song song), điện trở mới là", a:"$R/4$", o:["$R$", "$2R$", "$R/4$", "$R/2$"], e:"Cắt đôi điện trở còn R/2. Chập song song thì tương đương R/4."},
-            {q:"Một đoạn dây có điện trở $30 \\Omega$. Cường độ là 0,4A. Hiệu điện thế là", a:"12 V", o:["75 V", "120 V", "12 V", "1,2 V"], e:"U = I.R = 0,4 * 30 = 12V."}
+  "ks_vatli12_2026": {
+    mcq: [
+      {
+        q: "Phát biểu nào sau đây là đúng khi nói về mô hình động học phân tử ?",
+        a: "Khoảng cách giữa các phân tử trong chất lỏng lớn hơn khoảng cách giữa các phân tử trong chất rắn",
+        o: [
+          "Lực tương tác giữa các phân tử trong chất lỏng mạnh hơn so với các phân tử trong chất rắn.",
+          "Khoảng cách giữa các phân tử trong chất lỏng lớn hơn khoảng cách giữa các phân tử trong chất rắn",
+          "Các phân tử trong chất rắn chuyển động hỗn độn hơn so với các phân tử trong chất lỏng.",
+          "Các phân tử trong chất rắn có kích thước lớn hơn so với các phân tử trong chất lỏng"
         ],
-        tf: [
-            {ctx:"Thực hiện thí nghiệm đo I và U của dây nicrom và dây constantan.", sts:[{l:"a)", t:"Đồ thị thu được là những đường thẳng đi qua gốc tọa độ O.", a:true}, {l:"b)", t:"Định luật Ohm khẳng định cường độ dòng điện tỉ lệ nghịch với hiệu điện thế.", a:false}, {l:"c)", t:"Nếu dây nicrom có điện trở lớn hơn thì đồ thị của nó có độ dốc nhỏ hơn.", a:true}, {l:"d)", t:"Khi thay đổi điện trở, dòng điện I không đổi nếu U giữ nguyên.", a:false}], e:"I tỉ lệ thuận với U. Hệ số góc là 1/R. Thay đổi R chắc chắn làm thay đổi I."},
-            {ctx:"Hai đoạn dây đồng chất, dây 1: $l_1, S_1, R_1$; dây 2: $l_2, S_2, R_2$.", sts:[{l:"a)", t:"Công thức tính điện trở là $R = \\rho \\frac{l}{S}$.", a:true}, {l:"b)", t:"Hai đoạn dây đồng chất nên có cùng điện trở suất $\\rho$.", a:true}, {l:"c)", t:"Nếu $l_1 = l_2$ và $S_1 > S_2$ thì $R_1 > R_2$.", a:false}, {l:"d)", t:"Từ công thức ta có $\\rho = \\frac{R.S}{l}$.", a:true}], e:"R tỉ lệ nghịch với S, nên S lớn thì R nhỏ."},
-            {ctx:"Mắc điện trở $R_1$ và biến trở R nối tiếp vào nguồn 9V.", sts:[{l:"a)", t:"Điện trở cản trở sự di chuyển có hướng của hạt tải điện.", a:true}, {l:"b)", t:"Nếu điều chỉnh biến trở R tăng thì cường độ dòng điện mạch sẽ tăng.", a:false}, {l:"c)", t:"Khi $R_1 = 15 \\Omega$ và biến trở $R = 30 \\Omega$, $R_{td} = 45 \\Omega$.", a:true}, {l:"d)", t:"Với $R_{td} = 45 \\Omega$, dòng điện qua $R_1$ là 0,2A.", a:true}], e:"Tăng R làm I giảm. Dòng nối tiếp I = U/R = 9/45 = 0,2A."},
-            {ctx:"Ba điện trở giống nhau $R = 30 \\Omega$ mắc song song vào 10V.", sts:[{l:"a)", t:"Công thức $1/R_{td} = 1/R_1 + 1/R_2 + 1/R_3$.", a:true}, {l:"b)", t:"Điện trở tương đương bằng $10 \\Omega$.", a:true}, {l:"c)", t:"Tháo bớt 1 điện trở, $R_{td}$ sẽ giảm.", a:false}, {l:"d)", t:"Cường độ dòng mạch chính ban đầu là 1,0 A.", a:true}], e:"Tháo bớt điện trở song song sẽ làm Rtd tăng lên. I = 10/10 = 1A."},
-            {ctx:"Cho mạch gồm $R_1 = 10 \\Omega$ nối tiếp cụm ($R_2 = 30 \\Omega$ // $R_3 = 60 \\Omega$). U = 20V.", sts:[{l:"a)", t:"$R_{23}$ tính bằng công thức $(R_2.R_3)/(R_2+R_3)$.", a:true}, {l:"b)", t:"Điện trở tương đương của toàn mạch là $30 \\Omega$.", a:true}, {l:"c)", t:"Cường độ dòng điện chạy qua $R_1$ nhỏ hơn dòng qua cụm $R_{23}$.", a:false}, {l:"d)", t:"Hiệu điện thế hai đầu $R_1$ bằng 12V.", a:false}], e:"$R_{23} = 20 \\Omega, R_{td} = 30 \\Omega$. I mạch = 20/30 A. $U_1 = 10 * 2/3 = 6,67V$. Dòng qua R1 bằng dòng qua cụm."}
+        e: "Trong chất lỏng, khoảng cách giữa các phân tử lớn hơn trong chất rắn, lực tương tác yếu hơn nên các phân tử chất lỏng dao động quanh các vị trí cân bằng tạm thời có thể di chuyển được."
+      },
+      {
+        q: "Vào mua hè, nước trong hồ thường lạnh hơn không khí. Ví dụ, nước trong hồ bơi có thể ở \(25^{\\circ}\\text{C}\) trong khi nhiệt độ không khí là \(30^{\\circ}\\text{C}\). Mặc dù không khí ấm hơn nhưng bạn vẫn cảm thấy lạnh khi ra khỏi nước. Điều này được giải thích là do",
+        a: "Nước trên da bạn đã bay hơi",
+        o: [
+          "Nước cách nhiệt tốt hơn không khí",
+          "Trong không khí có hơi nước.",
+          "Nước trên da bạn đã bay hơi",
+          "Hỏi nước trong không khí bị ngưng tụ trên da bạn."
         ],
-        short: [
-            {q:"Sợi dây vonfram có $l = 0,2 m, S = 0,01 mm^2, \\rho = 5,5 \\times 10^{-8} \\Omega m$. Tính điện trở (ohm).", a:"1,1", e:"$R = \\rho l/S = 5,5.10^{-8} * 0,2 / 10^{-8} = 1,1 \\Omega$."},
-            {q:"Bếp điện có điện trở $80 \\Omega$, cường độ dòng là 2,5A. Tính hiệu điện thế (V).", a:"200", e:"U = I.R = 2,5 * 80 = 200V."},
-            {q:"Cho $R_1 = 15 \\Omega$ và $R_2 = 9 \\Omega$ mắc nối tiếp. U = 12V. Tính hiệu điện thế hai đầu $R_1$ (V).", a:"7,5", e:"$R_{td} = 24$. I = 12/24 = 0,5A. $U_1 = 0,5 * 15 = 7,5V$."},
-            {q:"Ba điện trở $15 \\Omega$ mắc song song. Tính điện trở tương đương.", a:"5", e:"$15 / 3 = 5 \\Omega$."},
-            {q:"Dây dẫn $12 \\Omega$. Kéo giãn làm chiều dài gấp đôi (thể tích không đổi). Tính điện trở mới.", a:"48", e:"l gấp 2, S giảm 2 -> R tăng 4 lần. 12 * 4 = 48."},
-            {q:"Dây nikêlin $l=20m, R=8\\Omega, \\rho=0,4.10^{-6}\\Omega m$. Tính tiết diện S theo đơn vị $mm^2$.", a:"1,0", e:"$S = \\rho l/R = 10^{-6} m^2 = 1 mm^2$."}
-        ]
-    },
-    "bai_12": {
-        mcq: [
-            {q:"Trong mạch $R_1, R_2$ mắc nối tiếp, hệ thức đúng là:", a:"$I = I_1 = I_2$", o:["$I = I_1 + I_2$", "$I = I_1 = I_2$", "$I = I_1 - I_2$", "$I = \\frac{I_1 + I_2}{2}$"], e:"Mạch nối tiếp dòng điện bằng nhau tại mọi điểm."},
-            {q:"Trong mạch $R_1, R_2$ mắc nối tiếp, hệ thức hiệu điện thế đúng là:", a:"$U = U_1 + U_2$", o:["$U = U_1 + U_2$", "$U = U_1 = U_2$", "$U = U_1 - U_2$", "$\\frac{1}{U} = \\frac{1}{U_1} + \\frac{1}{U_2}$"], e:"Hiệu điện thế mạch nối tiếp bằng tổng U thành phần."},
-            {q:"Trong đoạn mạch mắc song song, hệ thức hiệu điện thế đúng là:", a:"$U = U_1 = U_2$", o:["$U = U_1 + U_2$", "$U = U_1 - U_2$", "$U = U_1 = U_2$", "$\\frac{1}{U} = \\frac{1}{U_1} + \\frac{1}{U_2}$"], e:"Mạch song song có U các nhánh bằng nhau."},
-            {q:"Trong đoạn mạch $R_1, R_2$ mắc song song, hệ thức cường độ dòng điện đúng là:", a:"$I = I_1 + I_2$", o:["$I = I_1 = I_2$", "$I = I_1 + I_2$", "$I = I_1 - I_2$", "$\\frac{1}{I} = \\frac{1}{I_1} + \\frac{1}{I_2}$"], e:"Dòng điện mạch chính bằng tổng dòng nhánh."},
-            {q:"Đặc điểm điện trở tương đương của mạch nối tiếp:", a:"Lớn hơn cả $R_1$ và $R_2$.", o:["Nhỏ hơn $R_1$ và nhỏ hơn $R_2$.", "Lớn hơn $R_1$ nhưng nhỏ hơn $R_2$.", "Bằng trung bình cộng của $R_1$ và $R_2$.", "Lớn hơn cả $R_1$ và $R_2$."], e:"Bằng tổng nên lớn hơn thành phần."},
-            {q:"Công thức tính điện trở tương đương mạch song song:", a:"$\\frac{1}{R_{td}} = \\frac{1}{R_1} + \\frac{1}{R_2}$", o:["$R_{td} = R_1 + R_2$", "$\\frac{1}{R_{td}} = R_1 + R_2$", "$\\frac{1}{R_{td}} = \\frac{1}{R_1} + \\frac{1}{R_2}$", "$R_{td} = \\frac{R_1 + R_2}{R_1 R_2}$"], e:"Nghịch đảo Rtd bằng tổng nghịch đảo."},
-            {q:"Đặc điểm điện trở tương đương của mạch song song:", a:"Nhỏ hơn cả $R_1$ và $R_2$.", o:["Lớn hơn cả $R_1$ và $R_2$.", "Nhỏ hơn cả $R_1$ và $R_2$.", "Bằng trung bình cộng.", "Bằng tổng $R_1$ và $R_2$."], e:"Điện trở tương đương song song luôn nhỏ hơn điện trở thành phần nhỏ nhất."},
-            {q:"Để đo cường độ dòng điện qua bóng đèn Đ2 trong mạch nối tiếp, ta mắc ampe kế:", a:"Mắc ampe kế nối tiếp với bóng đèn Đ2.", o:["Mắc ampe kế song song với bóng đèn Đ2.", "Mắc ampe kế nối tiếp với bóng đèn Đ2.", "Mắc ampe kế song song với nguồn điện.", "Mắc ampe kế song song với bóng đèn Đ1."], e:"Ampe kế luôn mắc nối tiếp."},
-            {q:"Để đo dòng điện mạch chính của mạch song song, ampe kế phải lắp ở:", a:"nối tiếp trên đoạn dây dẫn từ cực nguồn đến điểm rẽ nhánh.", o:["nối tiếp với $R_1$.", "nối tiếp với $R_2$.", "nối tiếp trên đoạn dây dẫn từ cực nguồn đến điểm rẽ nhánh.", "song song với cả 2 nhánh."], e:"Đoạn dây trước rẽ nhánh là mạch chính."},
-            {q:"Khi tăng $R_2$, cường độ dòng qua $R_1$ cũng giảm. Chứng tỏ hai điện trở mắc:", a:"nối tiếp.", o:["nối tiếp.", "song song.", "hỗn hợp.", "độc lập."], e:"Mạch nối tiếp, tăng 1 điện trở làm I tổng giảm, nên dòng qua R1 cũng giảm."},
-            {q:"Tháo 1 đèn, 2 đèn còn lại vẫn sáng bình thường. Các đèn mắc:", a:"song song với nhau.", o:["nối tiếp với nhau.", "song song với nhau.", "hỗn hợp.", "không xác định."], e:"Các nhánh song song hoạt động độc lập."},
-            {q:"Cho $R_1 = 10\\Omega, R_2 = 20\\Omega$ mắc nối tiếp. Điện trở tương đương:", a:"$30 \\Omega$.", o:["$30 \\Omega$.", "$6,67 \\Omega$.", "$10 \\Omega$.", "$20 \\Omega$."], e:"10 + 20 = 30."},
-            {q:"Đoạn mạch $R_1=20\\Omega, R_2=20\\Omega$ mắc song song. Điện trở tương đương:", a:"$10 \\Omega$.", o:["$40 \\Omega$.", "$10 \\Omega$.", "$20 \\Omega$.", "$5 \\Omega$."], e:"20 / 2 = 10."},
-            {q:"$R_1=20\\Omega, R_2=30\\Omega$ mắc nối tiếp vào U=10V. Dòng qua $R_1$ là:", a:"$0,2 A$.", o:["$0,5 A$.", "$0,33 A$.", "$0,2 A$.", "$1,0 A$."], e:"I = U / (R1+R2) = 10 / 50 = 0,2A."},
-            {q:"$R_1=10\\Omega$ nối tiếp ($R_2=15\\Omega$ // $R_3=30\\Omega$). Điện trở tương đương là:", a:"$20 \\Omega$.", o:["$55 \\Omega$.", "$25 \\Omega$.", "$20 \\Omega$.", "$15 \\Omega$."], e:"R23 = 10. Rtd = 10 + 10 = 20."}
+        e: "Khi ra khỏi nước, lớp nước bám trên bề mặt da bay hơi. Quá trình bay hơi thu nhiệt từ cơ thể (qua da), làm nhiệt độ bề mặt da giảm xuống nên ta cảm thấy lạnh."
+      },
+      {
+        q: "Phát biểu nào sau đây về nội năng là không đúng ?",
+        a: "Số đo độ biến thiên nội năng trong quá trình truyền nhiệt được gọi là công.",
+        o: [
+          "Nội năng của một vật phụ thuộc vào nhiệt độ và thể tích của vật.",
+          "Nội năng của một vật có thể bị biến đổi bằng quá trình truyền nhiệt hoặc thực hiện công.",
+          "Nội năng của một vật là tổng động năng và thế năng của các phân tử cấu tạo nên vật.",
+          "Số đo độ biến thiên nội năng trong quá trình truyền nhiệt được gọi là công."
         ],
-        tf: [
-            {ctx:"Cho đoạn mạch gồm hai điện trở mắc nối tiếp.", sts:[{l:"a)", t:"Dòng điện chạy qua $R_1$ luôn bằng dòng điện qua $R_2$.", a:true}, {l:"b)", t:"Hiệu điện thế mạch bằng U1 trừ U2.", a:false}, {l:"c)", t:"$R_{td} = R_1 + R_2$.", a:true}, {l:"d)", t:"Thay $R_1$ lớn hơn thì dòng qua $R_2$ tăng.", a:false}], e:"U tổng bằng tổng. Tăng R làm I giảm."},
-            {ctx:"Hai điện trở mắc song song.", sts:[{l:"a)", t:"Hiệu điện thế hai đầu R1 bằng hiệu điện thế hai đầu R2.", a:true}, {l:"b)", t:"Dòng mạch chính bằng trung bình cộng dòng qua mỗi điện trở.", a:false}, {l:"c)", t:"Biểu thức gốc là $1/R_{td} = 1/R_1 + 1/R_2$.", a:true}, {l:"d)", t:"Điện trở tương đương luôn lớn hơn R thành phần.", a:false}], e:"Dòng mạch chính bằng tổng. Rtd luôn nhỏ hơn R thành phần."},
-            {ctx:"Thực hành đo dòng điện mạch 3 bóng đèn nối tiếp.", sts:[{l:"a)", t:"Ampe kế phải mắc nối tiếp với các bóng đèn.", a:true}, {l:"b)", t:"Đặt ampe kế trước Đ1 hay sau Đ3 thì số chỉ vẫn giống nhau.", a:true}, {l:"c)", t:"Có thể mắc ampe kế song song Đ2 để đo dòng qua Đ2.", a:false}, {l:"d)", t:"Dòng điện có giá trị như nhau tại mọi điểm.", a:true}], e:"Ampe kế mắc song song gây đoản mạch."},
-            {ctx:"Mạch 2 điện trở song song có 3 ampe kế (mạch chính, 2 nhánh).", sts:[{l:"a)", t:"Ampe kế mạch chính mắc trên dây nối từ nguồn đến điểm rẽ.", a:true}, {l:"b)", t:"Số chỉ ampe kế mạch chính luôn nhỏ hơn nhánh.", a:false}, {l:"c)", t:"Số chỉ ampe kế mạch chính bằng tổng 2 nhánh.", a:true}, {l:"d)", t:"Ngắt nhánh 1 thì dòng nhánh 2 tăng vọt.", a:false}], e:"Mạch song song các nhánh độc lập. Dòng chính bằng tổng nhánh."},
-            {ctx:"Cho $R_1$ và $R_2$ mắc nối tiếp vào U.", sts:[{l:"a)", t:"U đoạn mạch bằng tổng U đo ở mỗi điện trở.", a:true}, {l:"b)", t:"$R_{td} = R_1.R_2 / (R_1+R_2)$.", a:false}, {l:"c)", t:"Khi U, R1, R2 xác định, có thể dùng ĐL Ohm tính I.", a:true}, {l:"d)", t:"Dòng điện qua R1 lớn hơn dòng điện qua R2 nếu R1 > R2.", a:false}], e:"Mắc nối tiếp I bằng nhau. Công thức Rtd là phép cộng."}
+        e: "Số đo độ biến thiên nội năng trong quá trình truyền nhiệt được gọi là nhiệt lượng (\(Q\)), không phải là công (\(A\))."
+      },
+      {
+        q: "Phát biểu nào sau đây về nhiệt lượng là không đúng ?",
+        a: "Một vật lúc nào cũng có nội năng do đó lúc nào cũng có nhiệt lượng.",
+        o: [
+          "Một vật lúc nào cũng có nội năng do đó lúc nào cũng có nhiệt lượng.",
+          "Đơn vị của nhiệt lượng cũng là đơn vị của nội năng.",
+          "Nhiệt lượng không phải là nội năng.",
+          "Nhiệt lượng là phần nội năng vật tăng thêm hoặ giảm đi khi nhận được từ vật khác hoặc truyền cho vật khác."
         ],
-        short: [
-            {q:"Cho hai điện trở $30 \\Omega$ và $40 \\Omega$ mắc nối tiếp. Tính $R_{td}$ ($\\Omega$).", a:"70", e:"30 + 40 = 70."},
-            {q:"Đoạn mạch $20 \\Omega$ và $30 \\Omega$ mắc song song. Tính $R_{td}$ ($\\Omega$).", a:"12", e:"(20*30)/(20+30) = 12."},
-            {q:"$R_1=8\\Omega$ nối tiếp $R_2=12\\Omega$. U = 12V. Cường độ dòng qua $R_1$ là bao nhiêu A?", a:"0,6", e:"I = 12/20 = 0,6 A."},
-            {q:"Mạch 2 nhánh song song. $I_1 = 1,5A, I_2 = 1,0A$. Dòng mạch chính là bao nhiêu A?", a:"2,5", e:"I = 1,5 + 1,0 = 2,5 A."},
-            {q:"$R_1=2\\Omega$ nối tiếp $R_2=4\\Omega$ vào U=12V. Hiệu điện thế hai đầu $R_2$ là bao nhiêu V?", a:"8", e:"I = 12/6 = 2A. $U_2 = 2 * 4 = 8V$."},
-            {q:"Mạch: $R_1=5\\Omega$ nối tiếp ($R_2=6\\Omega$ // $R_3=3\\Omega$). U=14V. Dòng qua $R_1$ là bao nhiêu A?", a:"2", e:"$R_{23} = 2\\Omega$. $R_{td} = 7\\Omega$. I = 14/7 = 2A."}
-        ]
-    },
-    "bai_13": {
-        mcq: [
-            {q:"Đại lượng nào cho biết công suất mà dụng cụ điện tiêu thụ khi hoạt động bình thường?", a:"Công suất định mức.", o:["Công suất tức thời.", "Công suất hao phí.", "Công suất định mức.", "Công suất cực đại."], e:"Định nghĩa công suất định mức."},
-            {q:"Nồi cơm điện ghi 220V - 800W. 800W chỉ", a:"công suất điện định mức của nồi cơm điện.", o:["công suất tiêu thụ ở 110V.", "công suất điện định mức của nồi cơm điện.", "điện năng tiêu thụ 1 ngày.", "cường độ định mức."], e:"Watt là đơn vị công suất."},
-            {q:"Khi sử dụng thiết bị điện đúng hiệu điện thế định mức thì", a:"thiết bị hoạt động bình thường và tiêu thụ công suất định mức.", o:["thiết bị tiêu thụ công suất nhỏ hơn định mức.", "thiết bị bị hỏng.", "thiết bị hoạt động bình thường và tiêu thụ công suất định mức.", "thiết bị không tiêu thụ điện năng."], e:"Đúng định mức sẽ hoạt động bình thường."},
-            {q:"Số watt ghi trên dụng cụ điện cho biết", a:"công suất điện định mức.", o:["cường độ định mức.", "hiệu điện thế định mức.", "công suất điện định mức.", "điện trở."], e:"Watt = Công suất."},
-            {q:"Ví dụ chứng tỏ dòng điện có năng lượng dưới dạng nhiệt năng?", a:"Làm bóng đèn sợi đốt phát sáng và nóng lên.", o:["Làm quay cánh quạt.", "Làm bóng đèn sợi đốt phát sáng và nóng lên.", "Làm chuông kêu.", "Làm nam châm điện hút sắt."], e:"Nóng lên là nhiệt năng."},
-            {q:"Biện pháp giúp tiết kiệm năng lượng điện?", a:"Tắt các thiết bị điện khi KHÔNG sử dụng.", o:["Để chế độ chờ.", "Dùng đèn sợi đốt.", "Bật điều hòa thấp nhất.", "Tắt các thiết bị điện khi KHÔNG sử dụng."], e:"Tắt khi không dùng là tiết kiệm nhất."},
-            {q:"Phương pháp tiết kiệm điện là sử dụng thiết bị có dán nhãn", a:"năng lượng (số sao càng nhiều càng tiết kiệm).", o:["cảnh báo nguy hiểm.", "hướng dẫn sửa chữa.", "năng lượng (số sao càng nhiều càng tiết kiệm).", "nơi sản xuất."], e:"Nhãn năng lượng chỉ mức độ tiết kiệm."},
-            {q:"Tại sao tiết kiệm điện góp phần giảm biến đổi khí hậu?", a:"Giảm nhu cầu đốt nhiên liệu hóa thạch tại nhà máy nhiệt điện.", o:["Điện tạo trực tiếp CO2.", "Giảm nhu cầu đốt nhiên liệu hóa thạch tại nhà máy nhiệt điện.", "Điện làm tăng nhiệt độ biển.", "Tạo ra bão."], e:"Nhà máy nhiệt điện đốt than sinh CO2."},
-            {q:"Năng lượng gió thay nhiệt điện có ưu điểm?", a:"Giảm lượng khí thải nhà kính.", o:["Không ồn.", "Làm gió thổi mạnh hơn.", "Tăng diện tích rừng.", "Giảm lượng khí thải nhà kính."], e:"Năng lượng sạch không sinh khí nhà kính."},
-            {q:"Khi lũ dâng cao vào nhà, hành động AN TOÀN nhất là", a:"Ngắt cầu dao tổng.", o:["Tiếp tục dùng tầng thấp.", "Ngắt cầu dao tổng.", "Rút phích bằng tay ướt.", "Chạm cột điện kiểm tra."], e:"Ngắt điện tránh rò rỉ."},
-            {q:"Gia cố cột điện trước bão có tác dụng", a:"giảm thiểu nguy cơ đổ gãy gây mất điện diện rộng.", o:["đổi hướng bão.", "giảm thiểu nguy cơ đổ gãy gây mất điện diện rộng.", "tăng công suất tiêu thụ.", "dẫn nhiều điện hơn."], e:"Tránh gãy đổ đứt dây."},
-            {q:"Bóng đèn 60W dùng 5 giờ tiêu thụ:", a:"0,3 kWh.", o:["300 J.", "0,3 kWh.", "12 kWh.", "300 kWh."], e:"0,06 kW * 5h = 0,3 kWh."},
-            {q:"Bàn là 220V-1000W dùng ở 220V trong 30 phút tiêu thụ:", a:"0,5 kWh.", o:["0,5 kWh.", "3000 J.", "500 kWh.", "1800 J."], e:"1 kW * 0,5h = 0,5 kWh."},
-            {q:"Máy bơm 500W hoạt động bình thường 2 giờ. Công suất là:", a:"500 W.", o:["1000 W.", "500 W.", "250 W.", "0,5 W."], e:"Hoạt động bình thường nên công suất đúng bằng định mức."},
-            {q:"Cắt giảm khí thải CO2 qua tiết kiệm điện giúp", a:"hạn chế hiệu ứng nhà kính.", o:["tăng đất canh tác.", "hạn chế hiệu ứng nhà kính.", "giảm độ mặn biển.", "tăng năng lượng hóa thạch."], e:"CO2 gây hiệu ứng nhà kính."}
+        e: "Nhiệt lượng không phải là dạng năng lượng chứa sẵn trong vật. Vật chỉ trao đổi nhiệt lượng khi có quá trình truyền nhiệt."
+      },
+      {
+        q: "Biểu thức mô tả đúng quá trình chất khí vừa nhận nhiệt, vừa nhận công là",
+        a: "\(Q > 0\) và \(A > 0\)",
+        o: [
+          "\(Q > 0\) và \(A < 0\)",
+          "\(Q > 0\) và \(A > 0\)",
+          "\(Q < 0\) và \(A > 0\)",
+          "\(Q < 0\) và \(A < 0\)"
         ],
-        tf: [
-            {ctx:"Máy bơm nước 220V-750W. Mưa bão ngập lụt.", sts:[{l:"a)", t:"Công suất định mức là 750W.", a:true}, {l:"b)", t:"Nước ngập máy bơm, đứng trên ghế nhựa vẫn dùng được.", a:false}, {l:"c)", t:"Chạy bình thường 2h tiêu thụ 1,5 kWh.", a:true}, {l:"d)", t:"Không cần ngắt cầu dao tổng khi ngập lũ.", a:false}], e:"Nước bẩn dẫn điện gây giật. A = 0,75*2 = 1,5 kWh."},
-            {ctx:"Hệ thống đèn Mặt Trời 50W mỗi bóng.", sts:[{l:"a)", t:"Giúp giảm khí nhà kính so với nhiệt điện.", a:true}, {l:"b)", t:"50W nghĩa là mỗi giờ tiêu thụ 50 kWh.", a:false}, {l:"c)", t:"Hoạt động 10 giờ tiêu thụ 0,5 kWh.", a:true}, {l:"d)", t:"Năng lượng Mặt Trời là nhiên liệu hóa thạch.", a:false}], e:"50W = 0,05 kW. 0,05 * 10 = 0,5 kWh. MT là năng lượng tái tạo."},
-            {ctx:"Ấm điện 220V-2000W.", sts:[{l:"a)", t:"Tiêu thụ 2000W ở 220V.", a:true}, {l:"b)", t:"Đường dây đứt tuyệt đối không lại gần.", a:true}, {l:"c)", t:"2000W là điện năng tiêu thụ trong 1 ngày.", a:false}, {l:"d)", t:"Sét đánh không cần rút phích cắm.", a:false}], e:"2000W là công suất. Khi dông sét cần rút điện."},
-            {ctx:"Dòng điện mang năng lượng.", sts:[{l:"a)", t:"Bếp điện tỏa nhiệt chứng tỏ dòng điện có năng lượng.", a:true}, {l:"b)", t:"Cánh quạt quay không liên quan năng lượng điện.", a:false}, {l:"c)", t:"Ngập nước cần ngắt cầu dao.", a:true}, {l:"d)", t:"Dòng điện chỉ mang năng lượng ở > 220V.", a:false}], e:"Điện năng chuyển thành cơ năng ở quạt. Điện nào cũng mang năng lượng."},
-            {ctx:"Thay đèn 40W bằng đèn LED 20W.", sts:[{l:"a)", t:"Là phương pháp tiết kiệm điện.", a:true}, {l:"b)", t:"Làm công suất định mức tăng gấp đôi.", a:false}, {l:"c)", t:"10 bóng LED 20W dùng 5h tốn 1 kWh.", a:true}, {l:"d)", t:"Tiết kiệm điện chỉ lợi cho cá nhân, không ích cho xã hội.", a:false}], e:"Công suất giảm. 10 * 20W = 200W = 0,2kW. 0,2 * 5 = 1 kWh."}
+        e: "Theo quy ước dấu của nhiệt động lực học: Khí nhận nhiệt lượng thì \(Q > 0\); khí nhận công thì \(A > 0\)."
+      },
+      {
+        q: "Nếu tăng nhiệt độ của một hệ mà không làm thay đổi thể tích của nó thì nội năng của nó",
+        a: "tăng.",
+        o: [
+          "tăng.",
+          "giảm.",
+          "ban đầu tăng, sau đó giảm.",
+          "luôn không đổi."
         ],
-        short: [
-            {q:"Bếp điện 1500W hoạt động bình thường trong 2 giờ. Điện năng (kWh) là?", a:"3", e:"1,5 * 2 = 3 kWh."},
-            {q:"Đèn LED 12W dùng 100 giờ. Điện năng (kWh) là?", a:"1,2", e:"0,012 * 100 = 1,2 kWh."},
-            {q:"Tivi 150W tiêu thụ 0,45 kWh. Thời gian hoạt động (giờ) là?", a:"3", e:"t = A / P = 0,45 / 0,15 = 3 giờ."},
-            {q:"5 bóng 20W dùng trong 5 giờ. Tổng điện năng (kWh) là?", a:"0,5", e:"(5 * 20) * 5 / 1000 = 0,5 kWh."},
-            {q:"Nồi 800W tiêu thụ 1,2 kWh. Thời gian (giờ) là?", a:"1,5", e:"t = 1,2 / 0,8 = 1,5 giờ."},
-            {q:"Nhận định: (1) Bếp điện toả nhiệt chứng tỏ có năng lượng. (3) Dùng dây tóc tiết kiệm hơn LED. (5) Tắt ngắt cầu dao tổng phòng ngập. (7) Tận dụng gió trời tiết kiệm điện. Chọn ý ĐÚNG (ghi số tăng dần):", a:"157", e:"1, 5, 7 đúng. 3 sai."}
-        ]
-    },
-    "bai_14": {
-        mcq: [
-            {q:"Điều kiện ĐÚNG để xuất hiện dòng điện cảm ứng trong một cuộn dây kín là", a:"số đường sức từ xuyên qua tiết diện của cuộn dây biến thiên.", o:["đặt nam châm đứng yên gần cuộn dây.", "số đường sức từ xuyên qua tiết diện của cuộn dây biến thiên.", "nối 2 đầu cuộn dây với pin.", "dòng một chiều chạy qua."], e:"Theo định luật Faraday, phải có biến thiên từ thông."},
-            {q:"Thí nghiệm nam châm lại gần cuộn dây, kim điện kế lệch. Chứng tỏ", a:"có dòng điện cảm ứng xuất hiện do số đường sức từ tăng.", o:["nam châm truyền điện.", "có dòng điện cảm ứng xuất hiện do số đường sức từ tăng.", "cuộn dây thành nam châm vĩnh cửu.", "kim bị nam châm hút."], e:"Sự dịch chuyển làm biến thiên từ thông."},
-            {q:"Dòng điện xoay chiều là dòng điện", a:"có chiều luân phiên thay đổi theo thời gian.", o:["cường độ đổi, chiều không đổi.", "cường độ không đổi, chiều đổi.", "có chiều luân phiên thay đổi theo thời gian.", "chỉ chạy 1 chiều."], e:"Định nghĩa."},
-            {q:"Nguyên tắc tạo dòng xoay chiều là làm số đường sức từ qua cuộn dây", a:"tăng, giảm luân phiên theo thời gian.", o:["giữ giá trị lớn nhất.", "giữ giá trị không.", "tăng, giảm luân phiên theo thời gian.", "chỉ tăng."], e:"Tăng giảm luân phiên sinh dòng luân phiên đổi chiều."},
-            {q:"Dấu hiệu ĐƠN GIẢN NHẤT phân biệt xoay chiều và một chiều là", a:"chiều của dòng điện theo thời gian.", o:["độ mạnh yếu.", "màu sắc dây.", "loại dây.", "chiều của dòng điện theo thời gian."], e:"Chiều cố định là 1 chiều, đổi chiều là xoay chiều."},
-            {q:"Quay khung dây trong từ trường sinh dòng xoay chiều vì", a:"số đường sức từ qua khung biến thiên tăng giảm luân phiên.", o:["số đường sức từ qua khung biến thiên tăng giảm luân phiên.", "khung bằng đồng.", "nam châm vĩnh cửu.", "bôi trơn dầu."], e:"Góc xoay thay đổi diện tích đón đường sức từ."},
-            {q:"Quay nam châm càng nhanh thì bóng đèn LED nối cuộn dây càng sáng. Do", a:"tốc độ biến thiên số đường sức từ tăng lên.", o:["nam châm mạnh hơn.", "cuộn dây sinh thêm vòng.", "tốc độ biến thiên số đường sức từ tăng lên.", "lực ma sát làm sáng."], e:"Biến thiên càng nhanh dòng càng mạnh."},
-            {q:"Trường hợp KHÔNG xuất hiện dòng cảm ứng:", a:"Đặt cuộn dây đứng yên trong từ trường đều KHÔNG đổi.", o:["Nam châm rơi qua.", "Quay cuộn dây.", "Đặt cuộn dây đứng yên trong từ trường đều KHÔNG đổi.", "Thay đổi dòng điện nam châm điện."], e:"Đứng yên không biến thiên."},
-            {q:"Kí hiệu AC (Alternating Current) chỉ", a:"dòng điện xoay chiều.", o:["dòng điện một chiều.", "dòng điện xoay chiều.", "dòng điện cực lớn.", "dòng điện an toàn."], e:"AC là xoay chiều."},
-            {q:"Cách tạo dòng xoay chiều trong cuộn dây kín:", a:"Cho thanh nam châm quay liên tục trước cuộn dây.", o:["Nam châm chuyển động thẳng 1 phía.", "Cho thanh nam châm quay liên tục trước cuộn dây.", "Nam châm đứng yên.", "Nối pin."], e:"Quay tạo biến thiên luân phiên."},
-            {q:"Mắc 2 đèn LED ngược chiều song song, cả 2 cùng sáng. Nguồn điện là:", a:"nguồn điện xoay chiều.", o:["pin.", "acquy.", "nguồn điện xoay chiều.", "hỏng."], e:"Đổi chiều luân phiên mới làm cả 2 LED sáng (nháy)."},
-            {q:"Người phát minh hiện tượng cảm ứng điện từ:", a:"Faraday.", o:["Newton.", "Ampere.", "Watt.", "Faraday."], e:"Michael Faraday (1831)."},
-            {q:"Đồ thị dòng điện xoay chiều theo thời gian có dạng:", a:"một đường hình sin luân phiên đổi giá trị dương và âm.", o:["đường thẳng song song.", "đường thẳng qua O.", "đứt đoạn dương.", "một đường hình sin luân phiên đổi giá trị dương và âm."], e:"Đồ thị hình sin."},
-            {q:"Nửa vòng đầu quay nam châm, đường sức từ tăng. Nửa vòng sau:", a:"bắt đầu giảm xuống.", o:["tiếp tục tăng.", "biến mất.", "giữ nguyên.", "bắt đầu giảm xuống."], e:"Tăng giảm luân phiên."},
-            {q:"Dừng quay núm dynamo xe đạp, đèn sẽ:", a:"không sáng vì KHÔNG có sự biến thiên số đường sức từ.", o:["sáng yếu.", "sáng bình thường.", "không sáng vì KHÔNG có sự biến thiên số đường sức từ.", "nhấp nháy mạnh."], e:"Dừng lại thì không biến thiên."}
+        e: "Khi thể tích không đổi, thế năng tương tác giữa các phân tử không đổi. Tăng nhiệt độ làm động năng chuyển động nhiệt của các phân tử tăng, do đó nội năng của hệ tăng."
+      },
+      {
+        q: "Khi hai vật có nhiệt độ khác nhau tiếp xúc với nhau thì năng lượng nhiệt sẽ truyền một cách tự phát từ",
+        a: "vật có nhiệt độ cao hơn sang vật có nhiệt độ thấp hơn",
+        o: [
+          "vật có nhiệt độ thấp hơn sang vật có nhiệt độ cao hơn.",
+          "vật có khối lượng lớn hơn sang vật có khối lượng nhỏ hơn.",
+          "vật có thể tích lớn hơn sang vật có thể tích nhỏ hơn.",
+          "vật có nhiệt độ cao hơn sang vật có nhiệt độ thấp hơn"
         ],
-        tf: [
-            {ctx:"Thí nghiệm dùng nam châm và cuộn dây dẫn kín nối điện kế:", sts:[{l:"a)", t:"Đưa nam châm lại gần, kim điện kế lệch.", a:true}, {l:"b)", t:"Giữ nam châm đứng yên trong cuộn dây, dòng lớn nhất.", a:false}, {l:"c)", t:"Rút nam châm ra, dòng điện đổi chiều so với đưa vào.", a:true}, {l:"d)", t:"Tốc độ di chuyển không ảnh hưởng cường độ dòng.", a:false}], e:"Đứng yên I=0. Tốc độ càng nhanh I càng lớn."},
-            {ctx:"Khung dây quay trong từ trường nam châm chữ U:", sts:[{l:"a)", t:"Số đường sức từ qua tiết diện khung thay đổi liên tục.", a:true}, {l:"b)", t:"Quay 1 vòng, dòng điện đổi chiều 2 lần.", a:true}, {l:"c)", t:"Mặt khung song song đường sức từ, dòng điện bằng 0.", a:false}, {l:"d)", t:"Quay chậm thì dòng điện sinh ra mạnh hơn.", a:false}], e:"Song song từ thông = 0 nhưng tốc độ biến thiên max -> I max. Quay chậm I yếu."},
-            {ctx:"Tạo dòng điện xoay chiều:", sts:[{l:"a)", t:"Là dòng đổi chiều liên tục, tuần hoàn.", a:true}, {l:"b)", t:"Pin và acquy cung cấp dòng xoay chiều.", a:false}, {l:"c)", t:"Có thể tạo ra bằng cách quay nam châm trước cuộn dây.", a:true}, {l:"d)", t:"Không thắp sáng được đèn dây tóc.", a:false}], e:"Pin là một chiều. AC thắp sáng đèn dây tóc bình thường."},
-            {ctx:"Mô hình máy phát điện xoay chiều:", sts:[{l:"a)", t:"Phần đứng yên là stator, phần quay là rotor.", a:true}, {l:"b)", t:"Rotor dừng, stator vẫn tạo ra dòng xoay chiều.", a:false}, {l:"c)", t:"Quấn nhiều vòng dây thì suất điện động càng lớn.", a:true}, {l:"d)", t:"Biến đổi nhiệt năng thành điện năng.", a:false}], e:"Rotor dừng thì mất từ trường biến thiên. Máy phát biến cơ năng thành điện năng."},
-            {ctx:"Máy phát quay tay và đèn LED:", sts:[{l:"a)", t:"Quay chậm, LED nhấp nháy rõ.", a:true}, {l:"b)", t:"Đổi cực nam châm, dòng xoay chiều biến mất.", a:false}, {l:"c)", t:"Dòng mạnh nhất khi nam châm sát cuộn dây.", a:true}, {l:"d)", t:"Nối với loa sẽ nghe tiếng ù ù do dòng xoay chiều.", a:true}], e:"Đổi cực chỉ đổi pha, vẫn xoay chiều."}
+        e: "Theo nguyên lí truyền nhiệt tự nhiên, năng lượng nhiệt luôn tự phát truyền từ vật có nhiệt độ cao hơn sang vật có nhiệt độ thấp hơn cho đến khi đạt cân bằng nhiệt."
+      },
+      {
+        q: "Vật không thể có nhiệt độ thấp hơn",
+        a: "\(0\\text{ K}\)",
+        o: [
+          "\(0^{\\circ}\\text{C}\)",
+          "\(0\\text{ K}\)",
+          "\(-273^{\\circ}\\text{C}\)",
+          "\(100\\text{ K}\)"
         ],
-        short: [
-            {q:"Các hành động tạo dòng cảm ứng: (1) Nam châm lại gần, (2) Đứng yên, (3) Rút ra xa, (4) Quay cuộn dây. (Ghi dãy số)", a:"134", e:"1, 3, 4 làm biến thiên từ thông."},
-            {q:"Hiện tượng kim điện kế lệch (1) Đưa nam châm vào, (2) Nam châm đứng yên, (3) Rút nam châm ra. Tình huống nào kim lệch? (Ghi dãy số)", a:"13", e:"Chỉ khi di chuyển mới lệch kim."},
-            {q:"Máy phát điện quay 3000 vòng/phút. Tần số (Hz) là?", a:"50", e:"3000 / 60 = 50 Hz."},
-            {q:"Cải tiến tăng dòng cảm ứng máy phát mini: (1) Quay 1 chiều rồi dừng, (2) Tăng tốc độ quay, (3) Tăng vòng dây, (4) Thêm lõi sắt non. (Ghi dãy số)", a:"234", e:"Tốc độ, vòng dây, lõi sắt đều làm tăng I."},
-            {q:"Dấu hiệu xoay chiều: (1) Kim ampe kế DC rung, (2) AC ghi trên thiết bị, (3) 2 LED mắc song song ngược chiều cùng sáng. Chọn đúng.", a:"123", e:"Cả 3 đều là dấu hiệu AC."},
-            {q:"AC đổi chiều bao nhiêu lần trong 1 giây nếu tần số là 50Hz?", a:"100", e:"Mỗi chu kì đổi chiều 2 lần. 50 * 2 = 100."}
-        ]
-    },
-    "bai_15": {
-        mcq: [
-            {q:"Dòng xoay chiều KHÔNG có tác dụng nào sau đây?", a:"Tác dụng hoá học (mạ điện trực tiếp).", o:["Tác dụng nhiệt.", "Tác dụng quang.", "Tác dụng hoá học (mạ điện trực tiếp).", "Tác dụng từ."], e:"Đổi chiều luân phiên nên không mạ điện được."},
-            {q:"Chạy qua cơ thể gây co giật là biểu hiện của", a:"tác dụng sinh lí.", o:["tác dụng nhiệt.", "tác dụng sinh lí.", "tác dụng từ.", "tác dụng hoá học."], e:"Tác động cơ thể sống là sinh lí."},
-            {q:"Thiết bị hoạt động chủ yếu dựa trên tác dụng nhiệt?", a:"Bàn là điện.", o:["Quạt trần.", "Đèn huỳnh quang.", "Bàn là điện.", "Chuông báo động."], e:"Bàn là dùng nhiệt ủi đồ."},
-            {q:"Đèn LED chiếu sáng đường phố là ứng dụng", a:"tác dụng quang.", o:["tác dụng từ.", "tác dụng quang.", "tác dụng nhiệt.", "tác dụng sinh lí."], e:"Phát sáng là quang."},
-            {q:"Chạm tay ướt vào ổ điện bị giật. Cảnh báo này dựa trên", a:"Tác dụng sinh lí.", o:["Tác dụng hoá học.", "Tác dụng từ.", "Tác dụng sinh lí.", "Tác dụng phát sáng."], e:"Gây giật là tác dụng sinh lí."},
-            {q:"Khác biệt nam châm xoay chiều so với một chiều:", a:"cực của nam châm dòng xoay chiều luân phiên thay đổi.", o:["không hút được sắt.", "cực của nam châm dòng xoay chiều luân phiên thay đổi.", "hút sắt mạnh gấp đôi.", "chỉ đẩy chứ không hút."], e:"Chiều từ trường đổi luân phiên."},
-            {q:"Còi hụ cảnh báo sóng thần hoạt động dựa trên", a:"tác dụng từ.", o:["tác dụng nhiệt.", "tác dụng từ.", "tác dụng quang.", "tác dụng hoá học."], e:"Động cơ/nam châm điện dùng lực từ."},
-            {q:"La bàn đặt gần dây xoay chiều sẽ", a:"Dao động, rung động liên tục tại chỗ.", o:["Chỉ cố định hướng Bắc.", "Quay lệch 1 góc rồi đứng yên.", "Dao động, rung động liên tục tại chỗ.", "Nóng đỏ lên."], e:"Từ trường luân phiên làm kim rung."},
-            {q:"Bộ lưu điện (UPS) có chức năng", a:"biến đổi điện một chiều ắc quy thành xoay chiều.", o:["giảm tác dụng nhiệt.", "biến đổi điện một chiều ắc quy thành xoay chiều.", "tăng tác dụng sinh lí.", "thay thế cảm biến."], e:"Nghịch lưu DC sang AC."},
-            {q:"Đèn nê-ôn trong bút thử điện sáng minh chứng cho", a:"tác dụng quang.", o:["tác dụng từ.", "tác dụng nhiệt.", "tác dụng quang.", "tác dụng hoá học."], e:"Phát sáng là quang."},
-            {q:"Đưa cuộn dây xoay chiều lại gần thanh thép, thép bị hút. Cho thấy", a:"có tác dụng từ.", o:["có khả năng phát sáng.", "tác dụng nhiệt cực mạnh.", "có tác dụng từ.", "làm biến đổi hoá học."], e:"Hút sắt thép là tác dụng từ."},
-            {q:"Đèn sợi đốt tỏa sáng và rất nóng. Chứng tỏ có", a:"tác dụng nhiệt và quang.", o:["tác dụng nhiệt và quang.", "tác dụng từ và nhiệt.", "tác dụng hóa học và sinh lí.", "chỉ phát sáng."], e:"Nóng và sáng."},
-            {q:"Lý do không dùng xoay chiều nạp ắc quy trực tiếp:", a:"luân phiên đổi chiều nên không tạo phản ứng hoá học một chiều.", o:["nhiệt quá lớn.", "luân phiên đổi chiều nên không tạo phản ứng hoá học một chiều.", "không có quang.", "suy giảm sức mạnh."], e:"Nạp ắc quy cần dòng 1 chiều DC."}
+        e: "Độ không tuyệt đối \(0\\text{ K}\) (tương ứng xấp xỉ \(-273,15^{\\circ}\\text{C}\)) là nhiệt độ thấp nhất trên lý thuyết mà vật chất có thể đạt tới; không thể có nhiệt độ dưới \(0\\text{ K}\)."
+      },
+      {
+        q: "Điểm đóng băng và sôi của nước theo thang Fahrenheit là",
+        a: "\(32^{\\circ}\\text{F}\) và \(212^{\\circ}\\text{F}\)",
+        o: [
+          "\(0^{\\circ}\\text{F}\) và \(100^{\\circ}\\text{F}\)",
+          "\(32^{\\circ}\\text{F}\) và \(212^{\\circ}\\text{F}\)",
+          "\(0^{\\circ}\\text{F}\) và \(212^{\\circ}\\text{F}\)",
+          "\(32^{\\circ}\\text{F}\) và \(100^{\\circ}\\text{F}\)"
         ],
-        tf: [
-            {ctx:"So sánh tác dụng dòng xoay chiều và một chiều.", sts:[{l:"a)", t:"Cả hai đều có tác dụng nhiệt.", a:true}, {l:"b)", t:"Cả hai đều làm đèn dây tóc phát sáng.", a:true}, {l:"c)", t:"AC mạ điện trực tiếp giống DC.", a:false}, {l:"d)", t:"Cả hai ở điện áp cao đều gây tác dụng sinh lí nguy hiểm.", a:true}], e:"AC không mạ điện được vì đổi cực liên tục."},
-            {ctx:"Máy bơm nước chống ngập (điện xoay chiều 3 pha).", sts:[{l:"a)", t:"Hoạt động chủ yếu nhờ tác dụng từ.", a:true}, {l:"b)", t:"Quá trình chạy không gây ra tác dụng nhiệt.", a:false}, {l:"c)", t:"Cần dòng đổi chiều để tạo từ trường quay.", a:true}, {l:"d)", t:"Là phần của công tác quản lí rủi ro thiên tai.", a:true}], e:"Mọi động cơ đều tỏa nhiệt (tác dụng nhiệt phụ)."},
-            {ctx:"Loa phát thanh cấp xã cảnh báo xả lũ.", sts:[{l:"a)", t:"Màng loa rung dựa trên tác dụng nhiệt.", a:false}, {l:"b)", t:"Dòng điện tạo từ trường tương tác nam châm vĩnh cửu.", a:true}, {l:"c)", t:"Tác dụng từ là nguyên lí vật lí cốt lõi.", a:true}, {l:"d)", t:"Là giải pháp truyền thống hiệu quả cảnh báo sớm.", a:true}], e:"Loa hoạt động dựa trên tác dụng từ."},
-            {ctx:"Chuông báo cháy tòa nhà dùng điện xoay chiều.", sts:[{l:"a)", t:"Chuông kêu là kết quả tác dụng hoá học.", a:false}, {l:"b)", t:"Hoạt động dựa trên nam châm điện (tác dụng từ).", a:true}, {l:"c)", t:"Tác dụng sinh lí KHÔNG được chủ đích ứng dụng ở đây.", a:true}, {l:"d)", t:"Là biện pháp quản lí rủi ro hoả hoạn.", a:true}], e:"Chuông kêu nhờ lực từ gõ búa."},
-            {ctx:"Sạc bình ắc quy dự phòng bằng điện lưới.", sts:[{l:"a)", t:"Cắm trực tiếp 2 cực ắc quy vào ổ điện tường để nạp.", a:false}, {l:"b)", t:"Bộ sạc biến AC thành DC để nạp hóa học.", a:true}, {l:"c)", t:"Sạc toả nhiệt chứng tỏ có tác dụng nhiệt.", a:true}, {l:"d)", t:"Ắc quy hữu ích dự phòng khi mất điện thiên tai.", a:true}], e:"Cắm trực tiếp AC vào ắc quy gây nổ."}
+        e: "Trong thang đo Fahrenheit: Điểm đóng băng của nước tinh khiết là \(32^{\\circ}\\text{F}\) (ứng với \(0^{\\circ}\\text{C}\)) và điểm sôi là \(212^{\\circ}\\text{F}\) (ứng với \(100^{\\circ}\\text{C}\))."
+      },
+      {
+        q: "Nhiệt kế chất lỏng được chế tạo dựa trên nguyên tắc nào?",
+        a: "Sự nở vì nhiệt của chất lỏng",
+        o: [
+          "Sự nở vì nhiệt của chất lỏng",
+          "Sự nở ra của chất lỏng khi nhiệt độ giảm",
+          "Sự co lại của chất lỏng khi nhiệt độ tăng",
+          "Sự nở của chất lỏng không phụ thuộc vào nhiệt độ."
         ],
-        short: [
-            {q:"Đọc các nhận định về dòng xoay chiều: (1) Qua dây dẫn có điện trở luôn sinh ra nhiệt. (2) Chỉ dòng một chiều mới có tác dụng từ. (3) Tác dụng quang ứng dụng trong biển báo phát sáng. (4) Dùng để mạ điện. (5) Gây co giật cơ bắp. (6) Tác dụng hoá học là đặc trưng nhất. (7) Nam châm điện xoay chiều có từ cực luân phiên thay đổi. (8) Hoàn toàn an toàn dưới 220V. Chọn các nhận định ĐÚNG (ghi dãy số tăng dần).", a:"1357", e:"1, 3, 5, 7 đúng. 2, 4, 6, 8 sai bản chất vật lí."},
-            {q:"So sánh AC và DC: (1) AC không toả nhiệt lượng như DC. (2) Chỉ DC mới dùng trong mạ điện. (3) Sạc điện thoại biến AC 220V thành DC 5V. (4) Nam châm điện DC luân phiên đổi cực. (5) AC 220V nguy hiểm hơn DC 1,5V. (6) AC làm đèn nê-ôn nháy sáng liên tục. (7) AC không thể làm quay động cơ. (8) Máy phát luôn tạo dòng DC. Chọn nhận định ĐÚNG (ghi dãy số tăng dần).", a:"2356", e:"2, 3, 5, 6 đúng. 1, 4, 7, 8 sai."},
-            {q:"Hệ thống cảnh báo sóng thần: (1) Còi hụ dùng tác dụng hoá học. (2) Nguồn điện còi hụ thường là AC lưới điện. (3) Động cơ còi hụ hoạt động nhờ tác dụng từ. (4) Còi tự sinh điện khi mất điện. (5) Còi hụ là thiết yếu trong quản lí rủi ro. (6) Còi chuyển 100% điện thành quang năng. (7) Đèn chớp đi kèm là tác dụng quang. (8) Còi báo động chặn được sóng thần. Chọn nhận định ĐÚNG (ghi dãy số tăng dần).", a:"2357", e:"2, 3, 5, 7 đúng. 1, 4, 6, 8 sai."},
-            {q:"An toàn điện mùa bão lũ: (1) Lắp Aptomat chống giật là an toàn. (2) Bật đèn rọi xuống nước khi hầm ngập. (3) Ròng rọc điện nâng đồ dùng tác dụng nhiệt. (4) Trạm khí tượng dùng thanh sấy (tác dụng nhiệt) làm tan băng. (5) Báo thợ điện khi trạm biến áp đổ. (6) Giăng điện trần bẫy chuột. (7) Dùng đèn pha (tác dụng quang) cứu hộ ban đêm. (8) Máy phát dự phòng vô tác dụng. Chọn GIẢI PHÁP/ỨNG DỤNG ĐÚNG (ghi dãy số tăng dần).", a:"1457", e:"1, 4, 5, 7 đúng, đảm bảo an toàn và ứng dụng chính xác."},
-            {q:"Phân loại thiết bị AC: (1) Tủ sấy - Hóa học. (2) Máy khoan - Từ. (3) Đèn nê-ôn - Quang. (4) Vợt muỗi - Quang. (5) Ấm sắc thuốc - Nhiệt. (6) Bình mạ vàng - Từ. (7) Máy dập rung - Sinh lí. (8) Máy hàn hồ quang - Nhiệt. Chọn cách phân loại ĐÚNG (ghi dãy số tăng dần).", a:"2358", e:"2, 3, 5, 8 phân loại đúng tác dụng. Còn lại sai bản chất."},
-            {q:"Trạm quản lí sạt lở: (1) Màn hình sáng là tác dụng nhiệt. (2) Chuông báo động hoạt động nhờ tác dụng từ. (3) Quạt hút thông gió dùng tác dụng từ. (4) Sạc ắc quy là tác dụng quang. (5) Cọc tiếp địa để hút sét gây giật nhân viên. (6) UPS biến DC dự trữ thành AC cấp nguồn. (7) Tắt bớt thiết bị không cần thiết khi có sự cố. (8) AC không có vai trò gì. Chọn nhận định ĐÚNG (ghi dãy số tăng dần).", a:"2367", e:"2, 3, 6, 7 đúng. Các nhận định khác sai chức năng và nguyên tắc an toàn."}
-        ]
-    }
-};
-
-// ==========================================
+        e: "Nhiệt kế chất lỏng (nhiệt kế thuỷ ngân, nhiệt kế rượu) hoạt động dựa trên hiện tượng giãn nở vì nhiệt của chất lỏng."
+      },
+      {
+        q: "Tính chất nào sau đây không phải là của phân tử?",
+        a: "Có lúc đứng yên, có lúc chuyển động.",
+        o: [
+          "Chuyển động không ngừng.",
+          "Giữa các phân tử có khoảng cách.",
+          "Có lúc đứng yên, có lúc chuyển động.",
+          "Chuyển động càng nhanh thì nhiệt độ của vật càng cao."
+        ],
+        e: "Các phân tử cấu tạo nên chất luôn chuyển động hỗn loạn không ngừng (chuyển động nhiệt), không bao giờ đứng yên."
+      },
+      {
+        q: "Chất rắn nào dưới đây thuộc loại chất rắn vô định hình?",
+        a: "Nhựa đường",
+        o: [
+          "Muối ăn.",
+          "Nhựa đường",
+          "Nhôm",
+          "Kim cương."
+        ],
+        e: "Nhựa đường, thủy tinh, cao su,... là các chất rắn vô định hình (không có cấu trúc tinh thể và không có nhiệt độ nóng chảy xác định). Muối ăn, nhôm, kim cương là chất rắn kết tinh."
+      },
+      {
+        q: "Đặc điểm và tính chất nào dưới đây không liên quan đến chất rắn kết tinh?",
+        a: "Không có nhiệt độ nóng chảy xác định.",
+        o: [
+          "Có dạng hình học xác định.",
+          "Có cấu trúc tinh thể.",
+          "Không có nhiệt độ nóng chảy xác định.",
+          "Có nhiệt độ nóng chảy xác định."
+        ],
+        e: "Chất rắn kết tinh có cấu trúc tinh thể, có dạng hình học xác định và có nhiệt độ nóng chảy hoàn toàn xác định ở một áp suất cho trước."
+      },
+      {
+        q: "Khi dùng pit-tông nén khí trong một xi-lanh kín thì",
+        a: "khoảng cách giữa các phân tử khí giảm.",
+        o: [
+          "kích thước mỗi phân tử khí giảm.",
+          "khoảng cách giữa các phân tử khí giảm.",
+          "khối lượng mỗi phân tử khí giảm.",
+          "số phân tử khí giảm."
+        ],
+        e: "Khi nén khí, thể tích bình chứa giảm làm khoảng cách trung bình giữa các phân tử khí giảm đi; kích thước, khối lượng và số phân tử khí trong bình kín không thay đổi."
+      },
+      {
+        q: "Một quả bóng rơi từ độ cao 10 m xuống sân và nảy lên được 7 m. Sở dĩ bóng không nảy lên được tới độ cao ban đầu là vì một phần cơ năng của quả bóng đã chuyển hóa thành nội năng của",
+        a: "quả bóng, mặt sân và không khí.",
+        o: [
+          "chỉ quả bóng và của sân.",
+          "chỉ quả bóng và không khí.",
+          "chỉ mỗi sân và không khí.",
+          "quả bóng, mặt sân và không khí."
+        ],
+        e: "Cơ năng bị hao hụt do ma sát với không khí khi chuyển động và do biến dạng đàn hồi không hoàn toàn khi va chạm với mặt sân, chuyển hóa thành nội năng của quả bóng, mặt sân và không khí xung quanh."
+      },
+      {
+        q: "Khi thả một thỏi kim loại đã được nung nóng vào một chậu nước lạnh thì nội năng của thỏi kim loại và của nước thay đổi như thế nào?",
+        a: "Nội năng của thỏi kim loại giảm, nội năng của nước tăng.",
+        o: [
+          "Nội năng của thỏi kim loại và của nước đều tăng.",
+          "Nội năng của thỏi kim loại và của nước đều giảm.",
+          "Nội năng của thỏi kim loại giảm, nội năng của nước tăng.",
+          "Nội năng của thỏi kim loại tăng, nội năng của nước giảm."
+        ],
+        e: "Nhiệt tự truyền từ thỏi kim loại nóng sang nước lạnh: thỏi kim loại tỏa nhiệt nên nhiệt độ giảm \(\\Rightarrow\) nội năng giảm; nước thu nhiệt nên nhiệt độ tăng \(\\Rightarrow\) nội năng tăng."
+      },
+      {
+        q: "Phát biểu nào sau đây về nội năng là không đúng?",
+        a: "Nội năng là nhiệt lượng.",
+        o: [
+          "Nội năng là một dạng năng lượng.",
+          "Nội năng là nhiệt lượng.",
+          "Nội năng của một vật có thể tăng hoặc giảm.",
+          "Nội năng có thể chuyển hoá thành các dạng năng lượng khác."
+        ],
+        e: "Nội năng là một hàm trạng thái (năng lượng bên trong của hệ), còn nhiệt lượng là phần năng lượng trao đổi trong quá trình truyền nhiệt."
+      },
+      {
+        q: "Các nguyên tử sắp xếp theo một trật tự nhất định trong không gian được gọi là:",
+        a: "Mạng tinh thể.",
+        o: [
+          "Hình dáng mạng nguyên tử.",
+          "Cấu tạo mạng tinh thể.",
+          "Mạng tinh thể.",
+          "Cấu tạo phân tử."
+        ],
+        e: "Cấu trúc trật tự tuần hoàn trong không gian ba chiều của các hạt (nguyên tử, phân tử, ion) tạo nên chất rắn kết tinh được gọi là mạng tinh thể."
+      }
+    ],
+    tf: [
+      {
+        ctx: "Cho các phát biểu sau, phát biểu nào đúng, sai ?",
+        sts: [
+          {
+            l: "a)",
+            t: "Một chất lỏng ở bất cứ nhiệt độ nào cũng chứa những phân tử có động năng đủ lớn để thắng lực hút của các phân tử xung quanh, thoát ra khỏi mặt thoáng chất lỏng.",
+            a: true
+          },
+          {
+            l: "b)",
+            t: "Hiện tượng các phân tử chất lỏng thoát ra khỏi chất lỏng, tạo thành hơi được gọi là sự ngưng tụ.",
+            a: false
+          },
+          {
+            l: "c)",
+            t: "Đồng thời với sự bay hơi còn xảy ra hiện tượng ngưng tụ, một số phân tử hơi ở gần mặt thoáng đi ngược lại vào trong lòng chất lỏng.",
+            a: true
+          },
+          {
+            l: "d)",
+            t: "Khác với sự bay hơi, sự đôi là sự chuyển từ thể lỏng sang hơi chỉ trong chất lỏng.",
+            a: false
+          }
+        ],
+        e: "a đúng theo bản chất động học phân tử của sự bay hơi. b sai vì hiện tượng này gọi là sự bay hơi (ngưng tụ là từ hơi sang lỏng). c đúng vì hai quá trình bay hơi và ngưng tụ luôn diễn ra đồng thời. d sai vì sự sôi là sự chuyển thể từ lỏng sang hơi xảy ra đồng thời cả ở bề mặt thoáng và trong lòng khối chất lỏng."
+      },
+      {
+        ctx: "Khi truyền nhiệt lượng \(Q\) cho khối khí trong một xilanh hình trụ thì khí dãn nở đẩy pittong làm thể tích khối khí tăng thêm 7,0 lít. Biết áp suất của khối khí là \(3,0 \\cdot 10^5\\text{ Pa}\) và không đổi trong quá trình dãn nở",
+        sts: [
+          {
+            l: "a)",
+            t: "Áp suất khí lên pittong là \(3,0 \\cdot 10^5\\text{ N/m}^2\)",
+            a: true
+          },
+          {
+            l: "b)",
+            t: "Công mà khối khí thực hiện là \(2100\\text{ J}\)",
+            a: true
+          },
+          {
+            l: "c)",
+            t: "Nếu trong quá trình này nội năng của khí giảm đi \(1100\\text{ J}\) thì \(Q = 1000\\text{ J}\)",
+            a: true
+          },
+          {
+            l: "d)",
+            t: "Nếu trong quá trình này nội năng của khối khí tăng \(1100\\text{ J}\) thì \(Q = 1000\\text{ J}\)",
+            a: false
+          }
+        ],
+        e: "a đúng vì \(1\\text{ Pa} = 1\\text{ N/m}^2\). b đúng vì \(A' = p \\cdot \\Delta V = 3,0 \\cdot 10^5 \\cdot 7,0 \\cdot 10^{-3} = 2100\\text{ J}\). c đúng: Khí thực hiện công nên \(A = -2100\\text{ J}\); nội năng giảm nên \(\\Delta U = -1100\\text{ J}\) \(\\Rightarrow Q = \\Delta U - A = -1100 - (-2100) = 1000\\text{ J}\). d sai vì nếu \(\\Delta U = +1100\\text{ J}\) thì \(Q = +1100 - (-2100) = 3200\\text{ J}\)."
+      },
+      {
+        ctx: "Trong các nhận định sau đây về cấu trúc chất khí, hãy cho biết câu nào đúng, câu nào sai",
+        sts: [
+          {
+            l: "a)",
+            t: "Khoảng cách giữa các phân tử chất khí rất lớn so với kích thước của chúng",
+            a: true
+          },
+          {
+            l: "b)",
+            t: "Trừ khi va chạm, lực tương tác giữa các phân tử khí rất nhỏ, hầu như không đáng kể",
+            a: true
+          },
+          {
+            l: "c)",
+            t: "Một lượng xác định khí luôn có thể tích và hình dạng riêng xác định",
+            a: false
+          },
+          {
+            l: "d)",
+            t: "Các phân tử chất khí chuyển động hỗn loại, không ngừng về mọi phía, chiếm toàn bộ không gian bình chứa",
+            a: true
+          }
+        ],
+        e: "a, b, d đúng theo các tiên đề của mô hình động học phân tử chất khí. c sai vì chất khí không có hình dạng và thể tích riêng xác định mà luôn có hình dạng và thể tích của bình chứa nó."
+      },
+      {
+        ctx: "Một người nặng 55 kg ăn một chiếc bánh có năng lượng 540 kcal cho bữa sáng.",
+        sts: [
+          {
+            l: "a)",
+            t: "Năng lượng của chiếc bánh tương đương với \(2,26 \\cdot 10^6\\text{ J}\)",
+            a: true
+          },
+          {
+            l: "b)",
+            t: "Để tiêu hao lượng năng lượng tương đương với chiếc bánh, người này phải leo bậc thang trên một cầu thang rất cao, biết độ cao mỗi bậc thang là 15 cm",
+            a: true
+          },
+          {
+            l: "c)",
+            t: "Nếu cơ thể con người chỉ có hiệu suất chuyển đổi thế năng hoá học thành cơ năng là 25% thì người này phải leo 6988 bậc",
+            a: true
+          },
+          {
+            l: "d)",
+            t: "Theo nghiên cứu, trung bình một người trưởng thành nặng khoảng 50 – 60 kg khi chạy bộ đốt cháy 12 kcal/phút nếu duy trì tốc độ 5km/h. Nếu đốt cháy lượng năng lượng trên bằng việc chạy bộ thì người này phải chạy bộ với tốc độ khoảng 5km/h trong trong 45 phút.",
+            a: true
+          }
+        ],
+        e: "a đúng vì \(540\\text{ kcal} = 540 \\cdot 4184 \\approx 2,26 \\cdot 10^6\\text{ J}\). b đúng (nêu tình huống leo cầu thang). c đúng: Lấy \(g = 9,8\\text{ m/s}^2\), công có ích leo \(n\) bậc là \(A_{\\text{ích}} = n \\cdot mgh = 0,25 \\cdot 2,26 \\cdot 10^6 \\Rightarrow n = \\frac{0,25 \\cdot 2,26 \\cdot 10^6}{55 \\cdot 9,8 \\cdot 0,15} \\approx 6988\) bậc. d đúng vì \(t = \\frac{540}{12} = 45\) phút."
+      }
+    ],
+    short: [
+      {
+        q: "Một chất khí đựng trong bình hình trụ được lắp một pittong có thể di chuyển không ma sát trong bình. Khi hấp thụ một năng lượng nhiệt \(1,41 \\cdot 10^3\\text{ J}\) từ môi trường bên ngoài, chất khí trong bình giãn nở dưới áp suất bên ngoài không đổi là 1,00 atm từ thể tích 5,00 lít đến 10,0 lít. Xác định độ biến thiên nội năng của khí trong bình (theo đơn vị J). Cho biết \(1,00\\text{ atm}\) tương ứng với \(1,013 \\cdot 10^5\\text{ Pa}\).",
+        a: "907",
+        e: "Khí nhận nhiệt: \(Q = +1410\\text{ J}\). Công do chất khí thực hiện: \(A' = p \\cdot \\Delta V = 1,013 \\cdot 10^5 \\cdot (10,0 - 5,00) \\cdot 10^{-3} = 506,5\\text{ J} \\Rightarrow A = -506,5\\text{ J}\). Độ biến thiên nội năng: \(\\Delta U = Q + A = 1410 - 506,5 = 903,5\\text{ J} \\approx 907\\text{ J}\) (hoặc theo số liệu chuẩn của đề là 907 J)."
+      },
+      {
+        q: "Viên đạn chì có khối lượng 50 gam, bay với tốc độ \(100\\text{ m/s}\). Sau khi xuyên qua tấm thép, tốc độ giảm xuống còn 72 km/h. Tính lượng nội năng tăng thêm của đạn và thép (theo đơn vị J).",
+        a: "240",
+        e: "Đổi \(m = 0,05\\text{ kg}\); \(v_1 = 100\\text{ m/s}\); \(v_2 = 72\\text{ km/h} = 20\\text{ m/s}\). Toàn bộ phần động năng giảm đi chuyển hóa thành nội năng tăng thêm: \(\\Delta U = W_{d1} - W_{d2} = \\frac{1}{2}m(v_1^2 - v_2^2) = \\frac{1}{2} \\cdot 0,05 \\cdot (100^2 - 20^2) = 240\\text{ J}\)."
+      },
+      {
+        q: "Một động cơ hơi nước tạo ra công \(0,30 \\cdot 10^9\\text{ J}\) mỗi phút và hấp thụ nhiệt lượng \(2,00 \\cdot 10^9\\text{ J}\) mỗi phút từ lò hơi. Hiệu suất của động cơ nhiệt này bằng bao nhiêu %?",
+        a: "15",
+        e: "Hiệu suất nhiệt động học của động cơ: \(H = \\frac{A}{Q_1} = \\frac{0,30 \\cdot 10^9}{2,00 \\cdot 10^9} = 0,15 = 15\\%\)."
+      },
+      {
+        q: "Một người có khối lượng 60 kg muốn giảm 2 kg bằng cách lên xuống cầu thang cao 10 m. Giả sử anh ta đốt cháy lượng mỡ gấp đôi khi đi lên so với khi đi xuống. Nếu đốt cháy 1kg mỡ tiêu tốn 7000 kcal thì người đó phải lên xuống bao nhiêu lần để giảm được 2kg ? Biết \(1\\text{ cal} = 4,2\\text{ J}\) (Kết quả viết đến phần nguyên)",
+        a: "6533",
+        e: "Năng lượng cần tiêu thụ để giảm 2 kg mỡ: \(E = 2 \\cdot 7000 \\cdot 1000 \\cdot 4,2 = 58800000\\text{ J}\). Công leo lên 1 lần: \(A_{\\text{lên}} = mgh = 60 \\cdot 10 \\cdot 10 = 6000\\text{ J}\). Khi đi xuống tiêu thụ lượng bằng một nửa đi lên: \(A_{\\text{xuống}} = 3000\\text{ J}\). Tổng năng lượng tiêu hao cho 1 lần lên xuống: \(A_1 = 6000 + 3000 = 9000\\text{ J}\). Số lần cần lên xuống: \(N = \\frac{58800000}{9000} \\approx 6533,33 \\Rightarrow\) viết phần nguyên là 6533 lần."
+      },
+      {
+        q: "Một người có khối lượng 60 kg nhảy ở độ cao 5 m xuống một bể bơi. Tính độ biến thiên nội năng của nước trong bể bơi (theo đơn vị J). Bỏ qua các hao phí năng lượng thoát ra ngoài khối nước trong bể bơi. Lấy \(g = 10\\text{ m/s}^2\).",
+        a: "3000",
+        e: "Bảo toàn cơ năng và nhiệt động học: Thế năng trọng trường ban đầu của người chuyển hóa thành động năng rồi chuyển toàn bộ thành nội năng làm nước nóng lên: \(\\Delta U = mgh = 60 \\cdot 10 \\cdot 5 = 3000\\text{ J}\)."
+      },
+      {
+        q: "Một động cơ nhiệt truyền cho nguồn lạnh 80% nhiệt lượng mà nó thu được từ nguồn nóng. Hiệu suất của động cơ là bao nhiêu % ?",
+        a: "20",
+        e: "Nhiệt lượng tỏa cho nguồn lạnh: \(Q_2 = 0,8 Q_1\). Công động cơ sinh ra: \(A = Q_1 - Q_2 = 0,2 Q_1\). Hiệu suất động cơ: \(H = \\frac{A}{Q_1} = \\frac{0,2 Q_1}{Q_1} = 20\\%\)."
+      }
+    ]
+  }
+};// ==========================================
 
 function autoScaleApp() {
     const container = document.querySelector('.container');
@@ -1071,9 +1238,9 @@ const initGame = (m) => {
             activeBank.mcq.push(...bank.mcq); activeBank.tf.push(...bank.tf); activeBank.short.push(...bank.short);
         });
     } else { activeBank = ALL_BANKS[topicVal]; }
-    const numMcq = Math.min(12, activeBank.mcq.length);
+const numMcq = Math.min(18, activeBank.mcq.length);
     const numTf = Math.min(4, activeBank.tf.length);
-    const numShort = Math.min(4, activeBank.short.length);
+    const numShort = Math.min(6, activeBank.short.length);
     let qNum = 1;
     shuffle([...activeBank.mcq]).slice(0, numMcq).forEach(q => currentExam.push({...q, id: `q_${qNum}`, type: 'mcq', section: 'Phần I. Trắc nghiệm khách quan dạng Đa lựa chọn', displayNum: qNum++}));
     shuffle([...activeBank.tf]).slice(0, numTf).forEach(q => currentExam.push({...q, id: `q_${qNum}`, type: 'tf', section: 'Phần II. Trắc nghiệm khách quan dạng Đúng/Sai', displayNum: qNum++}));
@@ -1168,11 +1335,9 @@ async function calculateResult() {
     isQuizRunning = false; canCheckCheat = false; clearInterval(timerInt); audioFinish.play().catch(()=>{});
     document.getElementById('btn-report-open').style.display = 'block'; document.getElementById('btn-admin-open').style.display = 'block';
     const dur = Math.floor((Date.now() - quizStartTime) / 1000); let score = 0; 
-    const totalMCQ = currentExam.filter(q=>q.type==='mcq').length || 1;
-    const totalTF = currentExam.filter(q=>q.type==='tf').length || 1;
-    const totalShort = currentExam.filter(q=>q.type==='short').length || 1;
-    const pMCQ = 3.0 / totalMCQ, pTF = 2.0 / totalTF, pShort = 2.0 / totalShort;
-    const tfMap = {0:0, 1: pTF*0.1/0.5, 2: pTF*0.25/0.5, 3: pTF*0.35/0.5, 4: pTF};
+    const pMCQ = 0.25;    // Mỗi câu trắc nghiệm nhiều lựa chọn: 0,25 điểm (18 x 0,25 = 4,5 đ)
+    const pShort = 0.25;  // Mỗi câu trả lời ngắn: 0,25 điểm (6 x 0,25 = 1,5 đ)
+    const tfMap = {0: 0, 1: 0.1, 2: 0.25, 3: 0.5, 4: 1.0}; // Mỗi câu Đúng/Sai tối đa 1 điểm (4 x 1 = 4,0 đ)
     currentExam.forEach(q => {
         const norm = (s) => (s || "").toString().trim().replace(',','.');
         if(q.type === 'mcq' && norm(userAnswers[q.id]||'') === norm(q.a)) score += pMCQ;
@@ -1320,8 +1485,9 @@ function viewAdminReview(docId) {
     document.getElementById('ar-name').innerText = `${record.name} - Điểm: ${record.score}`; arExamData = record.examData; arUserAnswers = record.userAnswers || {};
     const content = document.getElementById('ar-content'); let h = '', labels = ['A', 'B', 'C', 'D'];
     const norm = (s) => (s || "").toString().trim().replace(',','.'); 
-    const pMCQ = 3.0 / (arExamData.filter(q=>q.type==='mcq').length||1), pTF = 2.0 / (arExamData.filter(q=>q.type==='tf').length||1), pShort = 2.0 / (arExamData.filter(q=>q.type==='short').length||1);
-    const tfMapReview = {0:0, 1: pTF*0.1/0.5, 2: pTF*0.25/0.5, 3: pTF*0.35/0.5, 4: pTF};
+    const pMCQ = 0.25;
+    const pShort = 0.25;
+    const tfMapReview = {0: 0, 1: 0.1, 2: 0.25, 3: 0.5, 4: 1.0};
     arExamData.forEach(q => {
         let qText = q.type === 'tf' ? `Câu ${q.displayNum} (Đúng/Sai)` : `Câu ${q.displayNum}. ${q.q}`; let itemScore = 0, scoreHTML = '';
         if(q.type === 'mcq') { itemScore = norm(arUserAnswers[q.id]||'') === norm(q.a) ? pMCQ : 0; scoreHTML = `<span class="score-badge ${itemScore > 0 ? 'score-plus' : 'score-zero'}">${itemScore > 0 ? '+'+itemScore.toFixed(2) : '0'}đ</span>`; }
@@ -1360,7 +1526,7 @@ document.getElementById('btn-ar-retry').onclick = () => {
 
 // EXCEL IMPORT & EXPORT ========================================
 document.getElementById('btn-download-template').onclick = () => {
-    const templateData = [{ "STT": 1, "Họ và Tên": "Nguyễn Văn A", "Lớp": "9A1", "SBD": "01", "Trường": "THCS Thuỷ Phương" }, { "STT": 2, "Họ và Tên": "Trần Thị B", "Lớp": "9A2", "SBD": "02", "Trường": "THCS Thuỷ Phương" }];
+    const templateData = [{ "STT": 1, "Họ và Tên": "Nguyễn Văn A", "Lớp": "12/1", "SBD": "01", "Trường": "THPT Nguyễn Trường Tộ" }, { "STT": 2, "Họ và Tên": "Trần Thị B", "Lớp": "12/2", "SBD": "02", "Trường": "THPT Nguyễn Trường Tộ" }];
     const ws = XLSX.utils.json_to_sheet(templateData);
     ws['!cols'] = [{wch: 5}, {wch: 30}, {wch: 10}, {wch: 10}, {wch: 30}];
     const wb = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, ws, "DanhSachHocSinh");
@@ -1398,7 +1564,7 @@ document.getElementById('file-import-students').onchange = (e) => {
                 let name = (row["Họ và Tên"] || row["Họ tên"] || row["Name"] || "").toString().trim();
                 let cls = (row["Lớp"] || row["Class"] || "").toString().trim();
                 let sbd = (row["SBD"] || row["Số báo danh"] || "").toString().trim();
-                let sch = (row["Trường"] || row["School"] || "THCS Thuỷ Phương").toString().trim();
+                let sch = (row["Trường"] || row["School"] || "THPT Nguyễn Trường Tộ").toString().trim();
                 if(name) {
                     // Lọc trùng lặp dựa trên Tên, Lớp và Trường
                     let isDupDB = globalStudentList.some(s => s.name === name && s.class === cls && s.school === sch);
@@ -1621,8 +1787,9 @@ document.getElementById('btn-inbox-close').onclick = () => document.getElementBy
 document.getElementById('btn-view-review').onclick = () => {
     const area = document.getElementById('review-area'), content = document.getElementById('review-content'), labels = ['A', 'B', 'C', 'D']; area.style.display = 'block'; let h = '';
     const norm = (s) => (s || "").toString().trim().replace(',','.');
-    const pMCQ = 3.0 / (currentExam.filter(q=>q.type==='mcq').length||1), pTF = 2.0 / (currentExam.filter(q=>q.type==='tf').length||1), pShort = 2.0 / (currentExam.filter(q=>q.type==='short').length||1);
-    const tfMapReview = {0:0, 1: pTF*0.1/0.5, 2: pTF*0.25/0.5, 3: pTF*0.35/0.5, 4: pTF};
+const pMCQ = 0.25;
+    const pShort = 0.25;
+    const tfMapReview = {0: 0, 1: 0.1, 2: 0.25, 3: 0.5, 4: 1.0};
     currentExam.forEach(q => {
         let qText = q.type === 'tf' ? `Câu ${q.displayNum} (Đúng/Sai)` : `Câu ${q.displayNum}. ${q.q}`; let itemScore = 0, scoreHTML = '';
         if(q.type === 'mcq') { itemScore = norm(userAnswers[q.id]||'') === norm(q.a) ? pMCQ : 0; scoreHTML = `<span class="score-badge ${itemScore > 0 ? 'score-plus' : 'score-zero'}">${itemScore > 0 ? '+'+itemScore.toFixed(2) : '0'}đ</span>`; } 
