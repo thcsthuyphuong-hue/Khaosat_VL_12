@@ -569,7 +569,6 @@ const audioFinish = new Audio('https://www.soundjay.com/misc/sounds/bell-ringing
 // ==========================================
 // =========================================================================
 // NGÂN HÀNG ĐỀ KHẢO SÁT VẬT LÍ 12 - TRƯỜNG THPT NGUYỄN TRƯỜNG TỘ
-// const ALL_BANKS = {
   "KS_Vatli12": {
     mcq: [
       {
@@ -1376,6 +1375,7 @@ if (window.MathJax && window.MathJax.typesetPromise) {
     } else {
         setTimeout(autoScaleApp, 50);
     }
+}
 async function calculateResult() {
     if (hasSaved) return; if(!isQuizRunning && !isProcessingCheat) return; hasSaved = true;
     if(wishTimeoutId) clearTimeout(wishTimeoutId);
