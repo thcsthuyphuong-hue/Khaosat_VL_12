@@ -1789,7 +1789,7 @@ document.getElementById('btn-inbox-close').onclick = () => document.getElementBy
 document.getElementById('btn-view-review').onclick = () => {
     const area = document.getElementById('review-area'), content = document.getElementById('review-content'), labels = ['A', 'B', 'C', 'D']; area.style.display = 'block'; let h = '';
     const norm = (s) => (s || "").toString().trim().replace(',','.');
-    cconst pMCQ = 0.25;
+    const pMCQ = 0.25;
     const pShort = 0.25;
     const tfMapReview = {0: 0, 1: 0.1, 2: 0.25, 3: 0.5, 4: 1.0};
     currentExam.forEach(q => {
