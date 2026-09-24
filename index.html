@@ -1240,9 +1240,9 @@ const initGame = (m) => {
             activeBank.mcq.push(...bank.mcq); activeBank.tf.push(...bank.tf); activeBank.short.push(...bank.short);
         });
     } else { activeBank = ALL_BANKS[topicVal]; }
-    const numMcq = Math.min(12, activeBank.mcq.length);
+   const numMcq = Math.min(18, activeBank.mcq.length);
     const numTf = Math.min(4, activeBank.tf.length);
-    const numShort = Math.min(4, activeBank.short.length);
+    const numShort = Math.min(6, activeBank.short.length);
     let qNum = 1;
     shuffle([...activeBank.mcq]).slice(0, numMcq).forEach(q => currentExam.push({...q, id: `q_${qNum}`, type: 'mcq', section: 'Phần I. Trắc nghiệm khách quan dạng Đa lựa chọn', displayNum: qNum++}));
     shuffle([...activeBank.tf]).slice(0, numTf).forEach(q => currentExam.push({...q, id: `q_${qNum}`, type: 'tf', section: 'Phần II. Trắc nghiệm khách quan dạng Đúng/Sai', displayNum: qNum++}));
@@ -1337,11 +1337,9 @@ async function calculateResult() {
     isQuizRunning = false; canCheckCheat = false; clearInterval(timerInt); audioFinish.play().catch(()=>{});
     document.getElementById('btn-report-open').style.display = 'block'; document.getElementById('btn-admin-open').style.display = 'block';
     const dur = Math.floor((Date.now() - quizStartTime) / 1000); let score = 0; 
-    const totalMCQ = currentExam.filter(q=>q.type==='mcq').length || 1;
-    const totalTF = currentExam.filter(q=>q.type==='tf').length || 1;
-    const totalShort = currentExam.filter(q=>q.type==='short').length || 1;
-    const pMCQ = 3.0 / totalMCQ, pTF = 2.0 / totalTF, pShort = 2.0 / totalShort;
-    const tfMap = {0:0, 1: pTF*0.1/0.5, 2: pTF*0.25/0.5, 3: pTF*0.35/0.5, 4: pTF};
+    const pMCQ = 0.25;    // Mỗi câu trắc nghiệm nhiều lựa chọn: 0,25 đ (18 x 0,25 = 4,5 điểm)
+    const pShort = 0.25;  // Mỗi câu trả lời ngắn: 0,25 đ (6 x 0,25 = 1,5 điểm)
+    const tfMap = {0: 0, 1: 0.1, 2: 0.25, 3: 0.5, 4: 1.0}; // Mỗi câu Đúng/Sai tối đa 1,0 đ (4 x 1,0 = 4,0 điểm)
     currentExam.forEach(q => {
         const norm = (s) => (s || "").toString().trim().replace(',','.');
         if(q.type === 'mcq' && norm(userAnswers[q.id]||'') === norm(q.a)) score += pMCQ;
@@ -1790,8 +1788,9 @@ document.getElementById('btn-inbox-close').onclick = () => document.getElementBy
 document.getElementById('btn-view-review').onclick = () => {
     const area = document.getElementById('review-area'), content = document.getElementById('review-content'), labels = ['A', 'B', 'C', 'D']; area.style.display = 'block'; let h = '';
     const norm = (s) => (s || "").toString().trim().replace(',','.');
-    const pMCQ = 3.0 / (currentExam.filter(q=>q.type==='mcq').length||1), pTF = 2.0 / (currentExam.filter(q=>q.type==='tf').length||1), pShort = 2.0 / (currentExam.filter(q=>q.type==='short').length||1);
-    const tfMapReview = {0:0, 1: pTF*0.1/0.5, 2: pTF*0.25/0.5, 3: pTF*0.35/0.5, 4: pTF};
+    cconst pMCQ = 0.25;
+    const pShort = 0.25;
+    const tfMapReview = {0: 0, 1: 0.1, 2: 0.25, 3: 0.5, 4: 1.0};
     currentExam.forEach(q => {
         let qText = q.type === 'tf' ? `Câu ${q.displayNum} (Đúng/Sai)` : `Câu ${q.displayNum}. ${q.q}`; let itemScore = 0, scoreHTML = '';
         if(q.type === 'mcq') { itemScore = norm(userAnswers[q.id]||'') === norm(q.a) ? pMCQ : 0; scoreHTML = `<span class="score-badge ${itemScore > 0 ? 'score-plus' : 'score-zero'}">${itemScore > 0 ? '+'+itemScore.toFixed(2) : '0'}đ</span>`; } 
