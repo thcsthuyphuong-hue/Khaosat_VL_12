@@ -1487,8 +1487,9 @@ function viewAdminReview(docId) {
     document.getElementById('ar-name').innerText = `${record.name} - Điểm: ${record.score}`; arExamData = record.examData; arUserAnswers = record.userAnswers || {};
     const content = document.getElementById('ar-content'); let h = '', labels = ['A', 'B', 'C', 'D'];
     const norm = (s) => (s || "").toString().trim().replace(',','.'); 
-    const pMCQ = 3.0 / (arExamData.filter(q=>q.type==='mcq').length||1), pTF = 2.0 / (arExamData.filter(q=>q.type==='tf').length||1), pShort = 2.0 / (arExamData.filter(q=>q.type==='short').length||1);
-    const tfMapReview = {0:0, 1: pTF*0.1/0.5, 2: pTF*0.25/0.5, 3: pTF*0.35/0.5, 4: pTF};
+    const pMCQ = 0.25;
+    const pShort = 0.25;
+    const tfMapReview = {0: 0, 1: 0.1, 2: 0.25, 3: 0.5, 4: 1.0};
     arExamData.forEach(q => {
         let qText = q.type === 'tf' ? `Câu ${q.displayNum} (Đúng/Sai)` : `Câu ${q.displayNum}. ${q.q}`; let itemScore = 0, scoreHTML = '';
         if(q.type === 'mcq') { itemScore = norm(arUserAnswers[q.id]||'') === norm(q.a) ? pMCQ : 0; scoreHTML = `<span class="score-badge ${itemScore > 0 ? 'score-plus' : 'score-zero'}">${itemScore > 0 ? '+'+itemScore.toFixed(2) : '0'}đ</span>`; }
